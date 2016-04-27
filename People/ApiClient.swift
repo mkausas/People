@@ -17,7 +17,7 @@ class ApiClient {
     /** 
         Get User information about self
     */
-    class func getSelf() {
+    class func getSelf(completion: (userID: String?, error: ErrorType?) -> ()) {
         let params = ["fields": ""]
         
         let graphRequest = FBSDKGraphRequest(graphPath: "/me", parameters: params, HTTPMethod: "GET")
@@ -27,17 +27,42 @@ class ApiClient {
             
             if error == nil {
                 self.USER_ID = (result as! NSDictionary)["id"] as? String
-                getUserEvents(self.USER_ID!)
+                completion(userID: self.USER_ID, error: error)
             } else {
                 print("error retrieving self: \(error)")
+                completion(userID: nil, error: error)
             }
         }
     }
     
     /**
+        Get User information
+     */
+    class func getUser(userID: String) {
+        let params = ["fields": "id, name, picture"]
+        
+        let graphRequest = FBSDKGraphRequest(graphPath: "\(userID)", parameters: params, HTTPMethod: "GET")
+        graphRequest.startWithCompletionHandler { (connection, result, error) in
+            print("completed request!")
+            print("result = \(result)")
+            
+            if error == nil {
+                self.USER_ID = (result as! NSDictionary)["id"] as? String
+//                getUserEvents(self.USER_ID!)
+                getUserEvents(self.USER_ID!, completion: { (events, error) in
+                })
+            } else {
+                print("error retrieving user: \(error)")
+            }
+        }
+    }
+    
+    
+    
+    /**
         Get events related to a User
      */
-    class func getUserEvents(userID: String) {
+    class func getUserEvents(userID: String, completion: (events: [String]?, error: ErrorType?) -> ()) {
         
         
         if FBSDKAccessToken.currentAccessToken().hasGranted("user_events") == false {
@@ -54,8 +79,16 @@ class ApiClient {
             
             if error == nil {
                 getEventAttendees("1561543284172468")
+                
+                var eventTitles = [String]()
+                for event in (result["data"] as! NSArray) {
+                    eventTitles.append(event["name"] as! String)
+                }
+                
+                completion(events: eventTitles, error: nil)
             } else {
                 print("error retrieving events: \(error)")
+                completion(events: nil, error: error)
             }
         }
     }

@@ -18,6 +18,10 @@
 		BDD2DB331CD0597700DE4513 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD2DB321CD0597700DE4513 /* FBSDKCoreKit.framework */; };
 		BDD2DB351CD05C0400DE4513 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD2DB341CD05C0400DE4513 /* FBSDKLoginKit.framework */; };
 		BDD2DB381CD060F400DE4513 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD2DB371CD060F400DE4513 /* ApiClient.swift */; };
+		BDD2DB401CD0749F00DE4513 /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD2DB3E1CD0749F00DE4513 /* PersonTableViewCell.swift */; };
+		BDD2DB411CD0749F00DE4513 /* PersonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDD2DB3F1CD0749F00DE4513 /* PersonTableViewCell.xib */; };
+		BDD2DB431CD0761800DE4513 /* PersonTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD2DB421CD0761800DE4513 /* PersonTableView.swift */; };
+		BDD2DB451CD078E200DE4513 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD2DB441CD078E200DE4513 /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,10 @@
 		BDD2DB321CD0597700DE4513 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		BDD2DB341CD05C0400DE4513 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../../FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		BDD2DB371CD060F400DE4513 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		BDD2DB3E1CD0749F00DE4513 /* PersonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
+		BDD2DB3F1CD0749F00DE4513 /* PersonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonTableViewCell.xib; sourceTree = "<group>"; };
+		BDD2DB421CD0761800DE4513 /* PersonTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonTableView.swift; sourceTree = "<group>"; };
+		BDD2DB441CD078E200DE4513 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,9 +117,10 @@
 			isa = PBXGroup;
 			children = (
 				BDD2DB361CD060E800DE4513 /* Networking */,
+				BDD2DB3B1CD0744800DE4513 /* Models */,
+				BDD2DB391CD0743B00DE4513 /* Views */,
 				BD2AFC211CD0579800622469 /* AppDelegate.swift */,
-				BD2AFC231CD0579800622469 /* ViewController.swift */,
-				BD2AFC251CD0579800622469 /* Main.storyboard */,
+				BDD2DB3A1CD0744200DE4513 /* Controllers */,
 				BD2AFC2B1CD0579800622469 /* Assets.xcassets */,
 				BD2AFC2D1CD0579800622469 /* LaunchScreen.storyboard */,
 				BD2AFC301CD0579800622469 /* Info.plist */,
@@ -153,6 +162,33 @@
 				BDD2DB371CD060F400DE4513 /* ApiClient.swift */,
 			);
 			name = Networking;
+			sourceTree = "<group>";
+		};
+		BDD2DB391CD0743B00DE4513 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BD2AFC251CD0579800622469 /* Main.storyboard */,
+				BDD2DB3F1CD0749F00DE4513 /* PersonTableViewCell.xib */,
+				BDD2DB3E1CD0749F00DE4513 /* PersonTableViewCell.swift */,
+				BDD2DB421CD0761800DE4513 /* PersonTableView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		BDD2DB3A1CD0744200DE4513 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BD2AFC231CD0579800622469 /* ViewController.swift */,
+				BDD2DB441CD078E200DE4513 /* SearchViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		BDD2DB3B1CD0744800DE4513 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +297,7 @@
 			files = (
 				BD2AFC2F1CD0579800622469 /* LaunchScreen.storyboard in Resources */,
 				BD2AFC2C1CD0579800622469 /* Assets.xcassets in Resources */,
+				BDD2DB411CD0749F00DE4513 /* PersonTableViewCell.xib in Resources */,
 				BD2AFC271CD0579800622469 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,8 +324,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD2AFC241CD0579800622469 /* ViewController.swift in Sources */,
+				BDD2DB451CD078E200DE4513 /* SearchViewController.swift in Sources */,
 				BD2AFC2A1CD0579800622469 /* People.xcdatamodeld in Sources */,
+				BDD2DB431CD0761800DE4513 /* PersonTableView.swift in Sources */,
 				BD2AFC221CD0579800622469 /* AppDelegate.swift in Sources */,
+				BDD2DB401CD0749F00DE4513 /* PersonTableViewCell.swift in Sources */,
 				BDD2DB381CD060F400DE4513 /* ApiClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
