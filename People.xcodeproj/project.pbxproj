@@ -17,6 +17,7 @@
 		BD2AFC451CD0579800622469 /* PeopleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2AFC441CD0579800622469 /* PeopleUITests.swift */; };
 		BDD2DB331CD0597700DE4513 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD2DB321CD0597700DE4513 /* FBSDKCoreKit.framework */; };
 		BDD2DB351CD05C0400DE4513 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD2DB341CD05C0400DE4513 /* FBSDKLoginKit.framework */; };
+		BDD2DB381CD060F400DE4513 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD2DB371CD060F400DE4513 /* ApiClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		BD2AFC461CD0579800622469 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDD2DB321CD0597700DE4513 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		BDD2DB341CD05C0400DE4513 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../../FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		BDD2DB371CD060F400DE4513 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 		BD2AFC201CD0579800622469 /* People */ = {
 			isa = PBXGroup;
 			children = (
+				BDD2DB361CD060E800DE4513 /* Networking */,
 				BD2AFC211CD0579800622469 /* AppDelegate.swift */,
 				BD2AFC231CD0579800622469 /* ViewController.swift */,
 				BD2AFC251CD0579800622469 /* Main.storyboard */,
@@ -142,6 +145,14 @@
 				BDD2DB321CD0597700DE4513 /* FBSDKCoreKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BDD2DB361CD060E800DE4513 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				BDD2DB371CD060F400DE4513 /* ApiClient.swift */,
+			);
+			name = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +289,7 @@
 				BD2AFC241CD0579800622469 /* ViewController.swift in Sources */,
 				BD2AFC2A1CD0579800622469 /* People.xcdatamodeld in Sources */,
 				BD2AFC221CD0579800622469 /* AppDelegate.swift in Sources */,
+				BDD2DB381CD060F400DE4513 /* ApiClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
