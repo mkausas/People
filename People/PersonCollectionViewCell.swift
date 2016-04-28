@@ -29,6 +29,7 @@ class PersonCollectionViewCell: UICollectionViewCell {
                 dispatch_async(dispatch_get_global_queue(priority, 0), {
                     while (self.attendee?.profileImage == nil) {
                         // still grabbing profile image
+                        print("grabbing")
                     }
                     
                     dispatch_async(dispatch_get_main_queue(), {

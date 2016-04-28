@@ -3,9 +3,10 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
     </dependencies>
     <scenes>
-        <!--Search View Controller-->
+        <!--Find-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="SearchViewController" customModule="People" customModuleProvider="target" sceneMemberID="viewController">
@@ -50,7 +51,7 @@
                             <constraint firstItem="Ebn-68-5OS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="oUH-AR-NJa"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="PkT-ro-dNh"/>
+                    <navigationItem key="navigationItem" title="Find" id="PkT-ro-dNh"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="personTableView" destination="FOq-o7-sB7" id="COW-aE-Uvp"/>
@@ -113,6 +114,56 @@
             </objects>
             <point key="canvasLocation" x="2125.5" y="251.5"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Yxd-1l-ZvA">
+            <objects>
+                <viewController id="SUC-10-uf2" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="e90-1b-2ZK"/>
+                        <viewControllerLayoutGuide type="bottom" id="Dyb-cE-gMI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zrX-bK-VOT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLa-Q4-7r3">
+                                <rect key="frame" x="164" y="290" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="wSW-rH-yMR" kind="presentation" id="LuM-YJ-ws1">
+                                        <segue key="commit" inheritsFrom="parent" id="zdI-yo-eiy"/>
+                                        <segue key="preview" destination="wSW-rH-yMR" id="vp8-VO-7DR"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FfF-UP-a2n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1853" y="1030"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="P01-ar-bWY">
+            <objects>
+                <viewController id="wSW-rH-yMR" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3fu-wY-9hP"/>
+                        <viewControllerLayoutGuide type="bottom" id="ar4-OR-Tls"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZH4-iZ-eKx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S8P-Js-PJa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2442.5" y="1029.5"/>
+        </scene>
         <!--WebViewController-->
         <scene sceneID="605-T1-xEf">
             <objects>
@@ -161,7 +212,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xVv-Ap-vbr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2707.5" y="251.5"/>
+            <point key="canvasLocation" x="2711.5" y="251.5"/>
         </scene>
         <!--Item-->
         <scene sceneID="UL5-UO-3Aw">
@@ -221,4 +272,7 @@
             <point key="canvasLocation" x="921" y="251"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="LuM-YJ-ws1"/>
+    </inferredMetricsTieBreakers>
 </document>

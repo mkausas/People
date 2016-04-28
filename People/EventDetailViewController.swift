@@ -17,33 +17,62 @@ class EventDetailViewController: UIViewController {
     var event: Event? {
         didSet {
             personCollectionView.setPeople(event!.attendees!)
+            self.title = event!.title!
+
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if traitCollection.forceTouchCapability == .Available {
+            
+            self.registerForPreviewingWithDelegate(self, sourceView: personCollectionView)
+        }
+        
         personCollectionView.personCollectionViewDelegate = self
         personCollectionView.setupData()
-                
+        
         if let attendees = event?.attendees {
             personCollectionView.setPeople(attendees)
             print("set attendees")
         }
+        
+        // check for force touch
+//        if( traitCollection.forceTouchCapability == .Available) {
+//            registerForPreviewingWithDelegate(self, sourceView: view)
+//        }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    var webViewUrl: String?
 }
 
 extension EventDetailViewController: PersonCollectionViewDelegate {
-    func personCollectionViewPresent(url: NSURL) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("WebViewController") as! WebViewController
-        self.presentViewController(vc, animated: true, completion: nil)
-        vc.url = url
-
+    
+    func personCollectionViewPresent(url: String) {
+        self.webViewUrl = url
     }
+}
+
+extension EventDetailViewController: UIViewControllerPreviewingDelegate {
+
+    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        guard let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("WebViewController") as? WebViewController else { return nil }
+        
+        viewController.url = NSURL(string: webViewUrl!)!
+        viewController.preferredContentSize = CGSize(width: 0, height: 0)
+        
+        return viewController
+    }
+    
+    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
+        self.presentViewController(viewControllerToCommit, animated: true, completion: nil)
+        
+    }
+    
+    
 }

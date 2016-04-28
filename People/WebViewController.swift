@@ -12,17 +12,15 @@ class WebViewController: UIViewController {
     
     @IBOutlet weak var webView: UIWebView!
     
-    var url: NSURL? {
-        didSet {
-            let requestObj = NSURLRequest(URL: url!);
-            webView.loadRequest(requestObj);
-        }
-    }
+    var url: NSURL?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        if let url = url {
+            let requestObj = NSURLRequest(URL: url)
+            webView.loadRequest(requestObj);
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,6 +32,14 @@ class WebViewController: UIViewController {
         self.dismissViewControllerAnimated(true) { 
             
         }
+    }
+    
+    override func previewActionItems() -> [UIPreviewActionItem] {
+        let regularAction = UIPreviewAction(title: "Save", style: .Default) { (action: UIPreviewAction, vc: UIViewController) -> Void in
+            
+        }
+    
+        return [regularAction]
     }
     
     
