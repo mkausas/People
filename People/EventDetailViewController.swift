@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class EventDetailViewController: UIViewController {
 
     @IBOutlet weak var personCollectionView: PersonCollectionView!
@@ -21,8 +23,7 @@ class EventDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("loading collectionview")
-        
+        personCollectionView.personCollectionViewDelegate = self
         personCollectionView.setupData()
                 
         if let attendees = event?.attendees {
@@ -35,10 +36,14 @@ class EventDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func reloadData() {
-        
+}
+
+extension EventDetailViewController: PersonCollectionViewDelegate {
+    func personCollectionViewPresent(url: NSURL) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("WebViewController") as! WebViewController
+        self.presentViewController(vc, animated: true, completion: nil)
+        vc.url = url
+
     }
-    
-    
 }

@@ -8,9 +8,14 @@
 
 import UIKit
 
+protocol PersonCollectionViewDelegate {
+    func personCollectionViewPresent(url: NSURL)
+}
+
 class PersonCollectionView: UICollectionView {
     
     var people = [Attendee]()
+    var personCollectionViewDelegate: PersonCollectionViewDelegate?
     
     func setupData() {
         
@@ -54,5 +59,9 @@ extension PersonCollectionView: UICollectionViewDataSource {
 extension PersonCollectionView: UICollectionViewDelegate {
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        print("selected")
+        
+        let url = NSURL(string: "https://www.facebook.com/\(people[indexPath.row].id!)")!
+        personCollectionViewDelegate?.personCollectionViewPresent(url)
     }
 }

@@ -16,6 +16,7 @@
 		BD2AFC2F1CD0579800622469 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD2AFC2D1CD0579800622469 /* LaunchScreen.storyboard */; };
 		BD2AFC3A1CD0579800622469 /* PeopleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2AFC391CD0579800622469 /* PeopleTests.swift */; };
 		BD2AFC451CD0579800622469 /* PeopleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2AFC441CD0579800622469 /* PeopleUITests.swift */; };
+		BD4C677E1CD1E555005FB9B8 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C677D1CD1E555005FB9B8 /* WebViewController.swift */; };
 		BDD2DB331CD0597700DE4513 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD2DB321CD0597700DE4513 /* FBSDKCoreKit.framework */; };
 		BDD2DB351CD05C0400DE4513 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD2DB341CD05C0400DE4513 /* FBSDKLoginKit.framework */; };
 		BDD2DB381CD060F400DE4513 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD2DB371CD060F400DE4513 /* ApiClient.swift */; };
@@ -65,6 +66,7 @@
 		BD2AFC401CD0579800622469 /* PeopleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeopleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD2AFC441CD0579800622469 /* PeopleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleUITests.swift; sourceTree = "<group>"; };
 		BD2AFC461CD0579800622469 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD4C677D1CD1E555005FB9B8 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		BDD2DB321CD0597700DE4513 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		BDD2DB341CD05C0400DE4513 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../../FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		BDD2DB371CD060F400DE4513 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				BD2AFC231CD0579800622469 /* ViewController.swift */,
 				BDD2DB441CD078E200DE4513 /* SearchViewController.swift */,
 				BDD2DB541CD1A32200DE4513 /* EventDetailViewController.swift */,
+				BD4C677D1CD1E555005FB9B8 /* WebViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				BDD2DB451CD078E200DE4513 /* SearchViewController.swift in Sources */,
 				BD2AFC2A1CD0579800622469 /* People.xcdatamodeld in Sources */,
 				BDD2DB431CD0761800DE4513 /* EventTableView.swift in Sources */,
+				BD4C677E1CD1E555005FB9B8 /* WebViewController.swift in Sources */,
 				BD2AFC221CD0579800622469 /* AppDelegate.swift in Sources */,
 				BDD2DB381CD060F400DE4513 /* ApiClient.swift in Sources */,
 			);
