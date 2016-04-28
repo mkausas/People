@@ -17,15 +17,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ebn-68-5OS">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Ebn-68-5OS">
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="5X8-TG-5kq"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="110" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FOq-o7-sB7" customClass="EventTableView" customModule="People" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="375" height="546"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="546"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventTableViewCell" rowHeight="129" id="KD8-1Q-ib6" customClass="EventTableViewCell" customModule="People" customModuleProvider="target">
@@ -45,7 +45,7 @@
                             <constraint firstAttribute="trailing" secondItem="FOq-o7-sB7" secondAttribute="trailing" id="XPG-Ry-Bjb"/>
                             <constraint firstItem="FOq-o7-sB7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Xy6-MX-T7O"/>
                             <constraint firstItem="FOq-o7-sB7" firstAttribute="top" secondItem="Ebn-68-5OS" secondAttribute="bottom" id="YID-e3-11J"/>
-                            <constraint firstItem="Ebn-68-5OS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="ZzX-m7-XNP"/>
+                            <constraint firstItem="Ebn-68-5OS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="ZzX-m7-XNP"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="FOq-o7-sB7" secondAttribute="bottom" id="fOW-0W-EfW"/>
                             <constraint firstItem="Ebn-68-5OS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="oUH-AR-NJa"/>
                         </constraints>
