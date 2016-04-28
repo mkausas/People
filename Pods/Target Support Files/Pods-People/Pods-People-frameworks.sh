@@ -85,7 +85,9 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-People/AFNetworking.framework"
+  install_framework "Pods-People/Haneke.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-People/AFNetworking.framework"
+  install_framework "Pods-People/Haneke.framework"
 fi

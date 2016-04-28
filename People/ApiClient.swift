@@ -38,23 +38,47 @@ class ApiClient {
         Get User information
      */
     class func getUser(userID: String) {
-        let params = ["fields": "id, name, picture"]
+        getUserData(userID, params: ["fields": "id, name, picture"]) { (result, error) in
+            if error == nil {
+                
+                
+            } else {
+                
+            }
+        }
+    }
+    
+    class func getUserData(userID: String, params: [String: AnyObject], completion: (result: AnyObject?, error: ErrorType?) -> ()) {
         
         let graphRequest = FBSDKGraphRequest(graphPath: "\(userID)", parameters: params, HTTPMethod: "GET")
         graphRequest.startWithCompletionHandler { (connection, result, error) in
             print("completed request!")
             print("result = \(result)")
             
-            if error == nil {
-                self.USER_ID = (result as! NSDictionary)["id"] as? String
-                getUserEvents(self.USER_ID!, completion: { (events, error) in
-                })
-            } else {
-                print("error retrieving user: \(error)")
-            }
+            completion(result: result, error: error)
         }
     }
     
+    class func getUserPhoto(userID: String, completion: (profileURL: String?, error: ErrorType?) -> ()) {
+        let params = ["fields": "picture.type(large)"]//, "width": 500, "height": 500]
+        let graphRequest = FBSDKGraphRequest(graphPath: "\(userID)", parameters: params, HTTPMethod: "GET")
+        graphRequest.startWithCompletionHandler { (connection, result, error) in
+            print("completed request!")
+            print("result = \(result)")
+            print("error = \(error)")
+            
+            if error == nil {
+                
+                let picture = result!["picture"] as! NSDictionary
+                let photoURL = picture["data"]!["url"] as? String
+                completion(profileURL: photoURL, error: nil) // finish this method
+            }
+            
+            else {
+                completion(profileURL: nil, error: error)
+            }
+        }
+    }
     
     
     /**
@@ -104,7 +128,7 @@ class ApiClient {
             if error == nil {
                 let data = result["data"] as? NSArray
                 let people = Attendee.groupFromJSON(data!)
-                
+        
                 completion(attendees: people, error: nil)
             } else {
                 print("error retrieving event attendees: \(error)")
@@ -133,4 +157,6 @@ class ApiClient {
             }
         }
     }
+    
+    
 }

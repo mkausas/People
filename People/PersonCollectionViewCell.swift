@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Haneke
 
 class PersonCollectionViewCell: UICollectionViewCell {
 
@@ -15,12 +16,21 @@ class PersonCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     
     static var cellIdentifier = "PersonCollectionViewCell"
-
+    
+    var attendeeIndex: Int?
     var attendee: Attendee? {
         didSet {
-//            profileImageView.image = 
             nameLabel.text = attendee?.name
+
+            if let img = attendee?.profileImage {
+                profileImageView.image = img
+            }
         }
+    }
+    
+    override func prepareForReuse() {
+        profileImageView.image = UIImage()
+        nameLabel.text = ""
     }
     
     override func awakeFromNib() {
