@@ -36,14 +36,6 @@ class Event {
         date = dateFormatter.stringFromDate(String.dateFromString(eventDate!)!)
         
         id = eventDetails["id"] as? String
-    
-        ApiClient.getEventAttendees("\(id!)") { (attendees, error) in
-            if error == nil {
-                self.attendees = attendees
-            } else {
-                print("Error: \(error)")
-            }
-        }
         
         if let cover = eventDetails["cover"] {
             coverURL = cover["source"] as? String

@@ -45,20 +45,6 @@ extension PersonCollectionView: UICollectionViewDataSource {
         let currAttendee = people[indexPath.row]
         cell.attendee = currAttendee
         
-//        if let img = currAttendee.profileImage {
-//            cell.profileImageView.image = img
-//        } else {
-//            ApiClient.getUserPhoto(currAttendee.id!) { (profileURL, error) in
-//                if error == nil {
-//                    currAttendee.profileImageURL = NSURL(string: profileURL!)
-//                    cell.profileImageView.setImageWithURL(currAttendee.profileImageURL!)
-//                    if let img = cell.profileImageView.image {
-//                        self.people[indexPath.row].profileImage = UIImage(data: img.asData())
-//                    }
-//                }
-//            }
-//        }
-        
         return cell
     }
     

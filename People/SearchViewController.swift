@@ -61,7 +61,20 @@ class SearchViewController: UIViewController {
         let destinationViewController = segue.destinationViewController
         
         if let vc = destinationViewController as? EventDetailViewController {
-            vc.event = personTableView.events[personTableView.indexPathForSelectedRow!.row]
+            
+//            if personTableView.events[personTableView.indexPathForSelectedRow!.row].attendees?.count < 1 {
+                ApiClient.getEventAttendees("\(personTableView.events[personTableView.indexPathForSelectedRow!.row].id!)") { (attendees, error) in
+                    if error == nil {
+                        self.personTableView.events[self.personTableView.indexPathForSelectedRow!.row].attendees = attendees
+                        vc.event = self.personTableView.events[self.personTableView.indexPathForSelectedRow!.row]
+
+                    } else {
+                        print("Error: \(error)")
+                    }
+                }
+//            } else {
+//                vc.event = self.personTableView.events[self.personTableView.indexPathForSelectedRow!.row]
+//            }
         }
     }
 }

@@ -12,7 +12,11 @@ class EventDetailViewController: UIViewController {
 
     @IBOutlet weak var personCollectionView: PersonCollectionView!
     
-    var event: Event?
+    var event: Event? {
+        didSet {
+            personCollectionView.setPeople(event!.attendees!)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
