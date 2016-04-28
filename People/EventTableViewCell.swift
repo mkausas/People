@@ -35,10 +35,6 @@ class EventTableViewCell: UITableViewCell {
         }
     }
     
-    func getAndSetCount() {
-        
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         

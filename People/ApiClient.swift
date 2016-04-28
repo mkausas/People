@@ -13,7 +13,6 @@ class ApiClient {
     
     static var USER_ID: String?
     
-    
     /** 
         Get User information about self
     */

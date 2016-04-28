@@ -8,9 +8,14 @@
 
 import UIKit
 
+protocol EventTableViewDelegate {
+    func eventTableViewShowDetail(event: Event)
+}
+
 class EventTableView: UITableView {
     
     var events = [Event]()
+    var eventTableViewDelegate: EventTableViewDelegate?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -51,4 +56,7 @@ extension EventTableView: UITableViewDataSource {
 
 extension EventTableView: UITableViewDelegate {
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        eventTableViewDelegate?.eventTableViewShowDetail(events[indexPath.row])
+    }
 }

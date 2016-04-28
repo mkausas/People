@@ -15,6 +15,8 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        personTableView.eventTableViewDelegate = self
+        
         // pull down to refresh
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(SearchViewController.refreshControlAction(_:)), forControlEvents: UIControlEvents.ValueChanged)
@@ -51,6 +53,22 @@ class SearchViewController: UIViewController {
                 self.personTableView.reloadData()
             }
         }
+    }
+    
+    // MARK: - Navigation
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let destinationViewController = segue.destinationViewController
+        
+        if let vc = destinationViewController as? EventDetailViewController {
+            vc.event = personTableView.events[personTableView.indexPathForSelectedRow!.row]
+        }
+    }
+}
+
+extension SearchViewController: EventTableViewDelegate {
+    func eventTableViewShowDetail(event: Event) {
+        self.performSegueWithIdentifier("showEventDetail", sender: nil)
     }
 }
 
