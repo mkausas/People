@@ -93,6 +93,9 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" red="0.81568627449999997" green="0.58823529409999997" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <segue destination="Nco-NW-xke" kind="presentation" identifier="toProfile" id="YHf-4T-6Tn"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>

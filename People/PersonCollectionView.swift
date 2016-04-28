@@ -32,8 +32,6 @@ class PersonCollectionView: UICollectionView {
         reloadData()
     }
     
-
-    
     func setPersonImage(index: Int, image: UIImage) {
         people[index].profileImage = image
     }
