@@ -13,6 +13,10 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="112" height="153"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xJj-Kf-3ug">
+                        <rect key="frame" x="0.0" y="112" width="112" height="41"/>
+                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7GK-mk-LR7">
                         <rect key="frame" x="0.0" y="0.0" width="112" height="112"/>
                         <constraints>
@@ -22,46 +26,27 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dung T." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FzB-a3-ydY">
                         <rect key="frame" x="8" y="120" width="96" height="25"/>
-                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add" translatesAutoresizingMaskIntoConstraints="NO" id="Lde-C5-UJ6">
-                        <rect key="frame" x="0.0" y="74" width="111" height="38"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="38" id="JWh-7F-nRT"/>
-                        </constraints>
-                    </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" translatesAutoresizingMaskIntoConstraints="NO" id="lm0-9I-nYM">
-                        <rect key="frame" x="47" y="84" width="18" height="18"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="18" id="006-1S-FQL"/>
-                            <constraint firstAttribute="width" constant="18" id="SyT-at-fXD"/>
-                        </constraints>
-                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
+            <color key="backgroundColor" red="0.1019607843" green="0.1019607843" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="FzB-a3-ydY" secondAttribute="trailing" constant="8" id="0vR-Au-8Eq"/>
+                <constraint firstItem="xJj-Kf-3ug" firstAttribute="top" secondItem="7GK-mk-LR7" secondAttribute="bottom" id="4ad-4q-sUW"/>
                 <constraint firstItem="FzB-a3-ydY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="5Og-uO-CW7"/>
-                <constraint firstAttribute="trailing" secondItem="Lde-C5-UJ6" secondAttribute="trailing" constant="1" id="E9F-Cj-fHb"/>
+                <constraint firstItem="xJj-Kf-3ug" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="8fj-8X-4Pm"/>
+                <constraint firstAttribute="bottom" secondItem="xJj-Kf-3ug" secondAttribute="bottom" id="Dk4-sV-ifp"/>
                 <constraint firstAttribute="trailing" secondItem="7GK-mk-LR7" secondAttribute="trailing" id="Hmi-Mo-AcR"/>
-                <constraint firstItem="lm0-9I-nYM" firstAttribute="leading" secondItem="Lde-C5-UJ6" secondAttribute="trailing" constant="-64" id="I7M-Ry-4EN"/>
-                <constraint firstItem="Lde-C5-UJ6" firstAttribute="bottom" secondItem="7GK-mk-LR7" secondAttribute="bottom" id="OM5-D8-k5t"/>
-                <constraint firstItem="Lde-C5-UJ6" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="RSc-2k-xND"/>
+                <constraint firstItem="FzB-a3-ydY" firstAttribute="centerY" secondItem="xJj-Kf-3ug" secondAttribute="centerY" id="IaX-x9-brw"/>
                 <constraint firstItem="7GK-mk-LR7" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Yh1-le-0By"/>
                 <constraint firstItem="7GK-mk-LR7" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="jlN-a5-JVi"/>
-                <constraint firstItem="7GK-mk-LR7" firstAttribute="top" secondItem="Lde-C5-UJ6" secondAttribute="bottom" constant="-50" id="nfb-ba-vpB"/>
+                <constraint firstAttribute="trailing" secondItem="xJj-Kf-3ug" secondAttribute="trailing" id="lUL-Uw-vpy"/>
                 <constraint firstItem="FzB-a3-ydY" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="r4B-Y6-P57"/>
-                <constraint firstItem="lm0-9I-nYM" firstAttribute="centerY" secondItem="Lde-C5-UJ6" secondAttribute="centerY" id="uaW-do-ehU"/>
-                <constraint firstAttribute="bottom" secondItem="FzB-a3-ydY" secondAttribute="bottom" constant="8" id="v2h-of-fkO"/>
             </constraints>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="nfb-ba-vpB"/>
-                </mask>
-            </variation>
             <connections>
                 <outlet property="nameLabel" destination="FzB-a3-ydY" id="vD2-L0-r2G"/>
                 <outlet property="profileImageView" destination="7GK-mk-LR7" id="jpL-lb-Gub"/>
@@ -69,8 +54,4 @@
             <point key="canvasLocation" x="321" y="261.5"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="add" width="109" height="34"/>
-        <image name="plus" width="87" height="88"/>
-    </resources>
 </document>

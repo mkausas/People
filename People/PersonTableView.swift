@@ -25,6 +25,8 @@ class PersonTableView: UITableView {
         
         self.rowHeight = 114
         
+        self.separatorStyle = UITableViewCellSeparatorStyle.None
+        
         // set tableview data
         self.delegate = self
         self.dataSource = self

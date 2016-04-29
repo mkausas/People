@@ -17,11 +17,21 @@ class PersonCollectionView: UICollectionView {
     var people = [Attendee]()
     var personCollectionViewDelegate: PersonCollectionViewDelegate?
     
+    
+    
     func setupData() {
         
         // grab custom person cell
         let cellNib = UINib(nibName: PersonCollectionViewCell.cellIdentifier, bundle: NSBundle.mainBundle())
         registerNib(cellNib, forCellWithReuseIdentifier: PersonCollectionViewCell.cellIdentifier)
+        
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
+        layout.itemSize = CGSize(width: self.frame.width/3, height: 1.366 * (self.frame.width / 3) )
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        
+        self.collectionViewLayout = layout
         
         self.delegate = self
         self.dataSource = self
@@ -64,4 +74,7 @@ extension PersonCollectionView: UICollectionViewDelegate {
         
         return false
     }
+    
+//    minimumInteritemSpacingForSectionAtIndex
+    
 }

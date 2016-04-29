@@ -1,5 +1,5 @@
 //
-//  WebViewController.swift
+//  LoginViewController.swift
 //  People
 //
 //  Created by Martynas Kausas on 4/28/16.
@@ -7,21 +7,26 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 
-class WebViewController: UIViewController {
-    
-    @IBOutlet weak var webView: UIWebView!
-    
-    var url: NSURL?
-    
+class LoginViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.prefersStatusBarHidden()
+        let loginButton = FBSDKLoginButton()
+        loginButton.readPermissions = ["public_profile", "user_events", "user_friends", "user_about_me", "user_about_me", "user_photos", "user_tagged_places"]
         
-        if let url = url {
-            let requestObj = NSURLRequest(URL: url)
-            webView.loadRequest(requestObj);
+        loginButton.center = self.view.center
+        
+        self.view.addSubview(loginButton)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if FBSDKAccessToken.currentAccessToken() != nil {
+            self.dismissViewControllerAnimated(true) {
+                
+            }
         }
     }
 
@@ -30,21 +35,7 @@ class WebViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func onDone(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true) { 
-            
-        }
-    }
-    
-    override func previewActionItems() -> [UIPreviewActionItem] {
-        let regularAction = UIPreviewAction(title: "Save", style: .Default) { (action: UIPreviewAction, vc: UIViewController) -> Void in
 
-        }
-    
-        return [regularAction]
-    }
-    
-    
     /*
     // MARK: - Navigation
 

@@ -8,6 +8,7 @@
 
 import Foundation
 import FBSDKCoreKit
+import UIKit
 
 class ApiClient {
     
@@ -16,7 +17,7 @@ class ApiClient {
     /** 
         Get User information about self
     */
-    class func getSelf(completion: (userID: String?, error: ErrorType?) -> ()) {
+    class func getSelf(completion: (userID: String?, error: NSError?) -> ()) {
         let params = ["fields": ""]
         
         let graphRequest = FBSDKGraphRequest(graphPath: "/me", parameters: params, HTTPMethod: "GET")
@@ -24,11 +25,12 @@ class ApiClient {
             print("completed request!")
             print("result = \(result)")
             
+            
             if error == nil {
                 self.USER_ID = (result as! NSDictionary)["id"] as? String
                 completion(userID: self.USER_ID, error: error)
             } else {
-                print("error retrieving self: \(error)")
+                print("error retrieving self: \(error.userInfo)")
                 completion(userID: nil, error: error)
             }
         }
@@ -87,10 +89,11 @@ class ApiClient {
     class func getUserEvents(userID: String, completion: (events: [Event]?, error: ErrorType?) -> ()) {
         
         
-        if FBSDKAccessToken.currentAccessToken().hasGranted("user_events") == false {
-            print("lacking access to events")
-            return
-        }
+        
+//        if FBSDKAccessToken.currentAccessToken().hasGranted("user_events") == false {
+//            print("lacking access to events")
+//            return
+//        }
         
         
         let params = ["fields": "id, name, cover, description, guest_list_enabled, owner, start_time"]
@@ -158,5 +161,14 @@ class ApiClient {
         }
     }
     
-    
+    class func checkLoggedIn(error: NSError?) -> Bool {
+        
+        if let err = error {
+            if err.userInfo["com.facebook.sdk:FBSDKErrorDeveloperMessageKey"] != nil {
+                return false
+            }
+        }
+        
+        return true
+    }
 }

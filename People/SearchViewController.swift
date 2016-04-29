@@ -15,6 +15,15 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController!.navigationBar.barTintColor = UIColor.blackColor()
+        self.navigationController!.navigationBar.tintColor = UIColor.whiteColor()
+        
+        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+
+        self.tabBarController!.tabBar.barTintColor = UIColor.blackColor()
+        self.tabBarController!.tabBar.tintColor = UIColor.whiteColor()
+
+
         personTableView.eventTableViewDelegate = self
         
         // pull down to refresh
@@ -37,6 +46,17 @@ class SearchViewController: UIViewController {
             ApiClient.getSelf({ (userID, error) in
                 if error == nil {
                     self.getUserEvents()
+                }
+                
+                else {
+                    if ApiClient.checkLoggedIn(error) == false {
+                        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("LoginViewController") as? LoginViewController
+                        
+
+                        self.presentViewController(vc!, animated: true, completion: {
+                            print("presented")
+                        })
+                    }
                 }
             })
         }

@@ -12,6 +12,7 @@
 		BD2320641CD2D5F700F4A6BF /* PersonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD2320621CD2D5F700F4A6BF /* PersonTableViewCell.xib */; };
 		BD2320661CD2D86400F4A6BF /* PersonTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2320651CD2D86400F4A6BF /* PersonTableView.swift */; };
 		BD23206C1CD2DAAD00F4A6BF /* DirectoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD23206B1CD2DAAD00F4A6BF /* DirectoryViewController.swift */; };
+		BD23206E1CD312C400F4A6BF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD23206D1CD312C400F4A6BF /* LoginViewController.swift */; };
 		BD2AFC221CD0579800622469 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2AFC211CD0579800622469 /* AppDelegate.swift */; };
 		BD2AFC241CD0579800622469 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2AFC231CD0579800622469 /* ViewController.swift */; };
 		BD2AFC271CD0579800622469 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD2AFC251CD0579800622469 /* Main.storyboard */; };
@@ -60,6 +61,7 @@
 		BD2320621CD2D5F700F4A6BF /* PersonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonTableViewCell.xib; sourceTree = "<group>"; };
 		BD2320651CD2D86400F4A6BF /* PersonTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonTableView.swift; sourceTree = "<group>"; };
 		BD23206B1CD2DAAD00F4A6BF /* DirectoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectoryViewController.swift; sourceTree = "<group>"; };
+		BD23206D1CD312C400F4A6BF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BD2AFC1E1CD0579800622469 /* People.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = People.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD2AFC211CD0579800622469 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD2AFC231CD0579800622469 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				BDD2DB541CD1A32200DE4513 /* EventDetailViewController.swift */,
 				BD4C677D1CD1E555005FB9B8 /* WebViewController.swift */,
 				BD23206B1CD2DAAD00F4A6BF /* DirectoryViewController.swift */,
+				BD23206D1CD312C400F4A6BF /* LoginViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD23206E1CD312C400F4A6BF /* LoginViewController.swift in Sources */,
 				BDD2DB571CD1A38100DE4513 /* PersonCollectionView.swift in Sources */,
 				BDD2DB521CD19F6800DE4513 /* PersonCollectionViewCell.swift in Sources */,
 				BDD2DB481CD1386400DE4513 /* EventTableViewCell.swift in Sources */,

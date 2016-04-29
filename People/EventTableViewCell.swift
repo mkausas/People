@@ -17,17 +17,12 @@ class EventTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var ownerLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var countLabel: UILabel!
     
     var event: Event? {
         didSet {
             titleLabel.text = event?.title
             ownerLabel.text = event?.owner
             dateLabel.text = event?.date
-            
-            if let attendeeCount = event?.attendees?.count {
-                countLabel.text = "\(attendeeCount)"
-            }
             
             if let URL = event?.coverURL {
                 bannerImageView.setImageWithURL(NSURL(string: URL)!)

@@ -48,7 +48,7 @@ class PersonTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         // round edges
-        profileImageView.layer.cornerRadius = 10
+        //	profileImageView.layer.cornerRadius = 10
         profileImageView.clipsToBounds = true
     }
 

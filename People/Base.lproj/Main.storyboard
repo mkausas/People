@@ -22,24 +22,26 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="5X8-TG-5kq"/>
                                 </constraints>
+                                <color key="barTintColor" red="0.078431372549019607" green="0.078431372549019607" blue="0.086274509803921567" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="110" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FOq-o7-sB7" customClass="EventTableView" customModule="People" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="110" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FOq-o7-sB7" customClass="EventTableView" customModule="People" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="108" width="375" height="546"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.13333333333333333" green="0.13725490196078433" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.13333333333333333" green="0.13725490196078433" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventTableViewCell" rowHeight="129" id="KD8-1Q-ib6" customClass="EventTableViewCell" customModule="People" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="129"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KD8-1Q-ib6" id="7Cq-U7-PX2">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="128.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="129"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.13333333333333333" green="0.13725490196078433" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Ebn-68-5OS" secondAttribute="trailing" id="P5s-kx-Dar"/>
                             <constraint firstAttribute="trailing" secondItem="FOq-o7-sB7" secondAttribute="trailing" id="XPG-Ry-Bjb"/>
@@ -61,6 +63,37 @@
             </objects>
             <point key="canvasLocation" x="1543.5" y="251.5"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="5EV-68-9TC">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" title="Login View Controller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YCT-e8-Qkt" customClass="LoginViewController" customModule="People" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YDz-Xh-Ohn"/>
+                        <viewControllerLayoutGuide type="bottom" id="XnK-c7-NLz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5Hz-uU-Dzy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rw4-a7-w44">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.1764705882" green="0.18039215689999999" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XnK-c7-NLz" firstAttribute="top" secondItem="rw4-a7-w44" secondAttribute="bottom" id="Ub6-kK-tkI"/>
+                            <constraint firstAttribute="trailing" secondItem="rw4-a7-w44" secondAttribute="trailing" id="qEm-G9-d7N"/>
+                            <constraint firstItem="rw4-a7-w44" firstAttribute="top" secondItem="5Hz-uU-Dzy" secondAttribute="top" id="veQ-8r-frU"/>
+                            <constraint firstItem="rw4-a7-w44" firstAttribute="leading" secondItem="5Hz-uU-Dzy" secondAttribute="leading" id="xRy-AR-OBw"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZZV-Wd-lx5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1122.5" y="1060.5"/>
+        </scene>
         <!--Event Detail View Controller-->
         <scene sceneID="bOQ-KW-e0B">
             <objects>
@@ -75,8 +108,9 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nD7-sV-ED9" customClass="PersonCollectionView" customModule="People" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ml2-8k-Sqq">
+                                <color key="backgroundColor" red="0.1764705882" green="0.18039215689999999" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="scrollIndicatorInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="15" id="Ml2-8k-Sqq">
                                     <size key="itemSize" width="112" height="153"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -99,7 +133,7 @@
                                 </cells>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.074509803921568626" green="0.074509803921568626" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Z2a-rY-Iob" firstAttribute="top" secondItem="nD7-sV-ED9" secondAttribute="bottom" id="17k-an-GuL"/>
                             <constraint firstItem="nD7-sV-ED9" firstAttribute="top" secondItem="1ua-tr-6n3" secondAttribute="bottom" id="NKe-wt-K4P"/>
@@ -185,7 +219,7 @@
             </objects>
             <point key="canvasLocation" x="-236" y="1027"/>
         </scene>
-        <!--Item-->
+        <!--Met-->
         <scene sceneID="mwh-Up-w0K">
             <objects>
                 <viewController id="qAK-40-pff" customClass="DirectoryViewController" customModule="People" customModuleProvider="target" sceneMemberID="viewController">
@@ -202,11 +236,15 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="tYF-Gd-jM2"/>
                                 </constraints>
+                                <color key="barTintColor" red="0.074509803921568626" green="0.074509803921568626" blue="0.074509803921568626" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="41h-Wy-FEH" customClass="PersonTableView" customModule="People" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.070588235294117646" green="0.074509803921568626" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="separatorColor" red="0.1764705882352941" green="0.1803921568627451" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.070588235289999995" green="0.074509803920000006" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexTrackingBackgroundColor" red="0.1764705882" green="0.18039215689999999" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PersonTableViewCell" rowHeight="114" id="8pl-lf-TI7">
                                         <rect key="frame" x="0.0" y="28" width="375" height="114"/>
@@ -214,12 +252,15 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8pl-lf-TI7" id="8qq-YQ-oVp">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="113.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" red="0.070588235294117646" green="0.074509803921568626" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.1764705882352941" green="0.1803921568627451" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.070588235294117646" green="0.074509803921568626" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Fjg-0m-xNI" secondAttribute="trailing" id="ETl-20-Exr"/>
                             <constraint firstItem="Fjg-0m-xNI" firstAttribute="leading" secondItem="eYy-8t-nwh" secondAttribute="leading" id="EjE-Kj-lzF"/>
@@ -230,7 +271,7 @@
                             <constraint firstItem="41h-Wy-FEH" firstAttribute="leading" secondItem="eYy-8t-nwh" secondAttribute="leading" id="pv4-xf-F8X"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="7OZ-vJ-djn"/>
+                    <tabBarItem key="tabBarItem" title="Met" image="hands" id="7OZ-vJ-djn"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="personTableView" destination="41h-Wy-FEH" id="XkY-yc-ocv"/>
@@ -259,11 +300,11 @@
             </objects>
             <point key="canvasLocation" x="110" y="252"/>
         </scene>
-        <!--Item-->
+        <!--Find-->
         <scene sceneID="45R-jG-0oE">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="s6D-Kr-ugb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="4Yf-cw-Huu"/>
+                    <tabBarItem key="tabBarItem" title="Find" image="shock" id="4Yf-cw-Huu"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="GSq-hg-9b1">
@@ -280,4 +321,8 @@
             <point key="canvasLocation" x="921" y="251"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="hands" width="30" height="20"/>
+        <image name="shock" width="25" height="30"/>
+    </resources>
 </document>
