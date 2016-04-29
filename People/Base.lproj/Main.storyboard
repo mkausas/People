@@ -106,14 +106,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z3V-dd-3vI">
-                                <rect key="frame" x="0.0" y="64" width="375" height="82"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="82" id="eVC-t2-p6q"/>
-                                </constraints>
-                            </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nD7-sV-ED9" customClass="PersonCollectionView" customModule="People" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="146" width="375" height="472"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" red="0.1764705882" green="0.18039215689999999" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="scrollIndicatorInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="15" id="Ml2-8k-Sqq">
@@ -138,21 +132,35 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="KKV-Z1-58g">
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                <color key="backgroundColor" red="0.12549019610000001" green="0.10980392160000001" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="78f-YL-Ag1"/>
+                                </constraints>
+                                <color key="barTintColor" red="0.074509803921568626" green="0.074509803921568626" blue="0.074509803921568626" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="0.074509803921568626" green="0.074509803921568626" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Z2a-rY-Iob" firstAttribute="top" secondItem="nD7-sV-ED9" secondAttribute="bottom" id="17k-an-GuL"/>
-                            <constraint firstAttribute="trailing" secondItem="z3V-dd-3vI" secondAttribute="trailing" id="E4e-Az-ubE"/>
+                            <constraint firstItem="nD7-sV-ED9" firstAttribute="top" secondItem="KKV-Z1-58g" secondAttribute="bottom" id="4fN-QA-Wqo"/>
+                            <constraint firstItem="nD7-sV-ED9" firstAttribute="top" secondItem="KKV-Z1-58g" secondAttribute="bottom" constant="-44" id="KtK-Mo-FgI"/>
+                            <constraint firstAttribute="trailing" secondItem="KKV-Z1-58g" secondAttribute="trailing" id="Qgu-g3-PmU"/>
                             <constraint firstAttribute="trailing" secondItem="nD7-sV-ED9" secondAttribute="trailing" id="akJ-PJ-qck"/>
-                            <constraint firstItem="z3V-dd-3vI" firstAttribute="leading" secondItem="T0R-cf-THt" secondAttribute="leading" id="iP8-eF-wGO"/>
                             <constraint firstItem="nD7-sV-ED9" firstAttribute="leading" secondItem="T0R-cf-THt" secondAttribute="leading" id="sUN-UJ-Nrg"/>
-                            <constraint firstItem="z3V-dd-3vI" firstAttribute="top" secondItem="1ua-tr-6n3" secondAttribute="bottom" id="wIk-n2-NJj"/>
-                            <constraint firstItem="nD7-sV-ED9" firstAttribute="top" secondItem="z3V-dd-3vI" secondAttribute="bottom" id="wPD-5g-pdN"/>
+                            <constraint firstItem="KKV-Z1-58g" firstAttribute="leading" secondItem="T0R-cf-THt" secondAttribute="leading" id="xYD-ks-fYs"/>
+                            <constraint firstItem="KKV-Z1-58g" firstAttribute="top" secondItem="1ua-tr-6n3" secondAttribute="bottom" id="y9A-xu-ahk"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="4fN-QA-Wqo"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="bannerImageView" destination="z3V-dd-3vI" id="vl5-Sg-AAm"/>
                         <outlet property="personCollectionView" destination="nD7-sV-ED9" id="3EE-IW-Uz5"/>
                     </connections>
                 </viewController>

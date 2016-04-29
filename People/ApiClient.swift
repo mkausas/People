@@ -90,10 +90,10 @@ class ApiClient {
         
         
         
-//        if FBSDKAccessToken.currentAccessToken().hasGranted("user_events") == false {
-//            print("lacking access to events")
-//            return
-//        }
+        if FBSDKAccessToken.currentAccessToken().hasGranted("user_events") == false {
+            print("lacking access to events")
+            return
+        }
         
         
         let params = ["fields": "id, name, cover, description, guest_list_enabled, owner, start_time"]

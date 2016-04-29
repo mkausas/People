@@ -17,6 +17,8 @@ class EventTableView: UITableView {
     var events = [Event]()
     var eventTableViewDelegate: EventTableViewDelegate?
     var selectedEventImage: UIImage?
+    var selectedRowIndex: Int?
+
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -60,7 +62,7 @@ extension EventTableView: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.dequeueReusableCellWithIdentifier(EventTableViewCell.cellIdentifier, forIndexPath: indexPath) as! EventTableViewCell
         
-        selectedEventImage = cell.bannerImageView.image
+        selectedRowIndex = indexPath.row
         eventTableViewDelegate?.eventTableViewShowDetail(events[indexPath.row])
     }
 }

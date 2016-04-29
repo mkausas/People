@@ -45,7 +45,10 @@ class WebViewController: UIViewController {
 
         }
     
-        return [regularAction]
+        let destructiveAction = UIPreviewAction(title: "Cancel", style: .Destructive) { (action: UIPreviewAction, vc: UIViewController) -> Void in
+        }
+        
+        return [regularAction, destructiveAction]
     }
     
     override func prefersStatusBarHidden() -> Bool {

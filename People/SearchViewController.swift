@@ -89,8 +89,10 @@ class SearchViewController: UIViewController {
             
             ApiClient.getEventAttendees("\(personTableView.events[personTableView.indexPathForSelectedRow!.row].id!)") { (attendees, error) in
                 if error == nil {
-                    self.personTableView.events[self.personTableView.indexPathForSelectedRow!.row].attendees = attendees
-                    vc.event = self.personTableView.events[self.personTableView.indexPathForSelectedRow!.row]
+                    let selectedRow = self.personTableView.selectedRowIndex!
+                    print("self.personTableView.indexPathForSelectedRow!.row = \(self.personTableView.selectedRowIndex)")
+                    self.personTableView.events[selectedRow].attendees = attendees
+                    vc.event = self.personTableView.events[selectedRow]
 
                 } else {
                     print("Error: \(error)")

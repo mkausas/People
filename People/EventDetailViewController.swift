@@ -13,7 +13,6 @@ import UIKit
 class EventDetailViewController: UIViewController {
 
     @IBOutlet weak var personCollectionView: PersonCollectionView!
-    @IBOutlet weak var bannerImageView: UIImageView!
     
     var bannerImage: UIImage?
     var event: Event? {
@@ -32,13 +31,6 @@ class EventDetailViewController: UIViewController {
         
         personCollectionView.personCollectionViewDelegate = self
         personCollectionView.setupData()
-        
-        if let img = bannerImage {
-            bannerImageView.clipsToBounds = true
-            bannerImageView.image = img
-        } else {
-            bannerImageView.hidden = true
-        }
         
         if let attendees = event?.attendees {
             personCollectionView.setPeople(attendees)
