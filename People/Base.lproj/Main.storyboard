@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
     </dependencies>
     <scenes>
         <!--Find-->
@@ -117,56 +116,6 @@
             </objects>
             <point key="canvasLocation" x="2125.5" y="251.5"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="Yxd-1l-ZvA">
-            <objects>
-                <viewController id="SUC-10-uf2" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="e90-1b-2ZK"/>
-                        <viewControllerLayoutGuide type="bottom" id="Dyb-cE-gMI"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="zrX-bK-VOT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLa-Q4-7r3">
-                                <rect key="frame" x="164" y="290" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="wSW-rH-yMR" kind="presentation" id="LuM-YJ-ws1">
-                                        <segue key="commit" inheritsFrom="parent" id="zdI-yo-eiy"/>
-                                        <segue key="preview" destination="wSW-rH-yMR" id="vp8-VO-7DR"/>
-                                    </segue>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FfF-UP-a2n" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1853" y="1030"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="P01-ar-bWY">
-            <objects>
-                <viewController id="wSW-rH-yMR" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="3fu-wY-9hP"/>
-                        <viewControllerLayoutGuide type="bottom" id="ar4-OR-Tls"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ZH4-iZ-eKx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="S8P-Js-PJa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2442.5" y="1029.5"/>
-        </scene>
         <!--WebViewController-->
         <scene sceneID="605-T1-xEf">
             <objects>
@@ -234,7 +183,62 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zFm-aW-wE0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="932" y="1035"/>
+            <point key="canvasLocation" x="-236" y="1027"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="mwh-Up-w0K">
+            <objects>
+                <viewController id="qAK-40-pff" customClass="DirectoryViewController" customModule="People" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="esn-wz-wRM"/>
+                        <viewControllerLayoutGuide type="bottom" id="ci7-d3-uFd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eYy-8t-nwh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Fjg-0m-xNI">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="tYF-Gd-jM2"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="41h-Wy-FEH" customClass="PersonTableView" customModule="People" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PersonTableViewCell" rowHeight="114" id="8pl-lf-TI7">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="114"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8pl-lf-TI7" id="8qq-YQ-oVp">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="113.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Fjg-0m-xNI" secondAttribute="trailing" id="ETl-20-Exr"/>
+                            <constraint firstItem="Fjg-0m-xNI" firstAttribute="leading" secondItem="eYy-8t-nwh" secondAttribute="leading" id="EjE-Kj-lzF"/>
+                            <constraint firstItem="ci7-d3-uFd" firstAttribute="top" secondItem="41h-Wy-FEH" secondAttribute="bottom" id="VBr-FU-oyd"/>
+                            <constraint firstItem="41h-Wy-FEH" firstAttribute="top" secondItem="Fjg-0m-xNI" secondAttribute="bottom" id="Z9Q-Gt-2g8"/>
+                            <constraint firstAttribute="trailing" secondItem="41h-Wy-FEH" secondAttribute="trailing" id="aXO-21-aAj"/>
+                            <constraint firstItem="Fjg-0m-xNI" firstAttribute="top" secondItem="esn-wz-wRM" secondAttribute="bottom" id="hHK-Ie-c4e"/>
+                            <constraint firstItem="41h-Wy-FEH" firstAttribute="leading" secondItem="eYy-8t-nwh" secondAttribute="leading" id="pv4-xf-F8X"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="7OZ-vJ-djn"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="personTableView" destination="41h-Wy-FEH" id="XkY-yc-ocv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ern-mO-Uox" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="550.5" y="1060.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="lTl-oS-Rrd">
@@ -248,6 +252,7 @@
                     <connections>
                         <segue destination="s6D-Kr-ugb" kind="relationship" relationship="viewControllers" id="pxG-IU-vnS"/>
                         <segue destination="Aww-ES-Gyo" kind="relationship" relationship="viewControllers" id="ugl-mi-H4D"/>
+                        <segue destination="qAK-40-pff" kind="relationship" relationship="viewControllers" id="sBt-Mv-j10"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m5f-6l-CWc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -275,7 +280,4 @@
             <point key="canvasLocation" x="921" y="251"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="LuM-YJ-ws1"/>
-    </inferredMetricsTieBreakers>
 </document>

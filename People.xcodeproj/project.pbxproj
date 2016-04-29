@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		6696BD0E083B3568622E0F36 /* Pods_People.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D07F74C8869C4A50A105D3B2 /* Pods_People.framework */; };
+		BD2320631CD2D5F700F4A6BF /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2320611CD2D5F700F4A6BF /* PersonTableViewCell.swift */; };
+		BD2320641CD2D5F700F4A6BF /* PersonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD2320621CD2D5F700F4A6BF /* PersonTableViewCell.xib */; };
+		BD2320661CD2D86400F4A6BF /* PersonTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2320651CD2D86400F4A6BF /* PersonTableView.swift */; };
+		BD23206C1CD2DAAD00F4A6BF /* DirectoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD23206B1CD2DAAD00F4A6BF /* DirectoryViewController.swift */; };
 		BD2AFC221CD0579800622469 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2AFC211CD0579800622469 /* AppDelegate.swift */; };
 		BD2AFC241CD0579800622469 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2AFC231CD0579800622469 /* ViewController.swift */; };
 		BD2AFC271CD0579800622469 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD2AFC251CD0579800622469 /* Main.storyboard */; };
@@ -52,6 +56,10 @@
 
 /* Begin PBXFileReference section */
 		206EFD9CF42916A9BCB534B4 /* Pods-People.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-People.debug.xcconfig"; path = "Pods/Target Support Files/Pods-People/Pods-People.debug.xcconfig"; sourceTree = "<group>"; };
+		BD2320611CD2D5F700F4A6BF /* PersonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
+		BD2320621CD2D5F700F4A6BF /* PersonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonTableViewCell.xib; sourceTree = "<group>"; };
+		BD2320651CD2D86400F4A6BF /* PersonTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonTableView.swift; sourceTree = "<group>"; };
+		BD23206B1CD2DAAD00F4A6BF /* DirectoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectoryViewController.swift; sourceTree = "<group>"; };
 		BD2AFC1E1CD0579800622469 /* People.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = People.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD2AFC211CD0579800622469 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD2AFC231CD0579800622469 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +128,36 @@
 				D0DDE8D82291463858E1D52C /* Pods-People.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		BD2320671CD2D8AF00F4A6BF /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				BDD2DB421CD0761800DE4513 /* EventTableView.swift */,
+				BDD2DB461CD1386400DE4513 /* EventTableViewCell.swift */,
+				BDD2DB471CD1386400DE4513 /* EventTableViewCell.xib */,
+			);
+			name = Events;
+			sourceTree = "<group>";
+		};
+		BD2320691CD2D8D700F4A6BF /* Attendee */ = {
+			isa = PBXGroup;
+			children = (
+				BDD2DB561CD1A38100DE4513 /* PersonCollectionView.swift */,
+				BDD2DB501CD19F6800DE4513 /* PersonCollectionViewCell.swift */,
+				BDD2DB511CD19F6800DE4513 /* PersonCollectionViewCell.xib */,
+			);
+			name = Attendee;
+			sourceTree = "<group>";
+		};
+		BD23206A1CD2D8FB00F4A6BF /* Person */ = {
+			isa = PBXGroup;
+			children = (
+				BD2320651CD2D86400F4A6BF /* PersonTableView.swift */,
+				BD2320611CD2D5F700F4A6BF /* PersonTableViewCell.swift */,
+				BD2320621CD2D5F700F4A6BF /* PersonTableViewCell.xib */,
+			);
+			name = Person;
 			sourceTree = "<group>";
 		};
 		BD2AFC151CD0579800622469 = {
@@ -201,12 +239,9 @@
 			isa = PBXGroup;
 			children = (
 				BD2AFC251CD0579800622469 /* Main.storyboard */,
-				BDD2DB461CD1386400DE4513 /* EventTableViewCell.swift */,
-				BDD2DB471CD1386400DE4513 /* EventTableViewCell.xib */,
-				BDD2DB421CD0761800DE4513 /* EventTableView.swift */,
-				BDD2DB501CD19F6800DE4513 /* PersonCollectionViewCell.swift */,
-				BDD2DB511CD19F6800DE4513 /* PersonCollectionViewCell.xib */,
-				BDD2DB561CD1A38100DE4513 /* PersonCollectionView.swift */,
+				BD2320691CD2D8D700F4A6BF /* Attendee */,
+				BD2320671CD2D8AF00F4A6BF /* Events */,
+				BD23206A1CD2D8FB00F4A6BF /* Person */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -218,6 +253,7 @@
 				BDD2DB441CD078E200DE4513 /* SearchViewController.swift */,
 				BDD2DB541CD1A32200DE4513 /* EventDetailViewController.swift */,
 				BD4C677D1CD1E555005FB9B8 /* WebViewController.swift */,
+				BD23206B1CD2DAAD00F4A6BF /* DirectoryViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -341,6 +377,7 @@
 			files = (
 				BDD2DB491CD1386400DE4513 /* EventTableViewCell.xib in Resources */,
 				BD2AFC2F1CD0579800622469 /* LaunchScreen.storyboard in Resources */,
+				BD2320641CD2D5F700F4A6BF /* PersonTableViewCell.xib in Resources */,
 				BDD2DB531CD19F6800DE4513 /* PersonCollectionViewCell.xib in Resources */,
 				BD2AFC2C1CD0579800622469 /* Assets.xcassets in Resources */,
 				BD2AFC271CD0579800622469 /* Main.storyboard in Resources */,
@@ -419,17 +456,20 @@
 				BDD2DB571CD1A38100DE4513 /* PersonCollectionView.swift in Sources */,
 				BDD2DB521CD19F6800DE4513 /* PersonCollectionViewCell.swift in Sources */,
 				BDD2DB481CD1386400DE4513 /* EventTableViewCell.swift in Sources */,
+				BD2320631CD2D5F700F4A6BF /* PersonTableViewCell.swift in Sources */,
 				BDD2DB4B1CD13CC000DE4513 /* Event.swift in Sources */,
 				BDD2DB4D1CD142FD00DE4513 /* StringExtension.swift in Sources */,
 				BD2AFC241CD0579800622469 /* ViewController.swift in Sources */,
 				BDD2DB4F1CD1488E00DE4513 /* Attendee.swift in Sources */,
 				BDD2DB551CD1A32200DE4513 /* EventDetailViewController.swift in Sources */,
 				BDD2DB451CD078E200DE4513 /* SearchViewController.swift in Sources */,
+				BD2320661CD2D86400F4A6BF /* PersonTableView.swift in Sources */,
 				BD2AFC2A1CD0579800622469 /* People.xcdatamodeld in Sources */,
 				BDD2DB431CD0761800DE4513 /* EventTableView.swift in Sources */,
 				BD4C677E1CD1E555005FB9B8 /* WebViewController.swift in Sources */,
 				BD2AFC221CD0579800622469 /* AppDelegate.swift in Sources */,
 				BDD2DB381CD060F400DE4513 /* ApiClient.swift in Sources */,
+				BD23206C1CD2DAAD00F4A6BF /* DirectoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

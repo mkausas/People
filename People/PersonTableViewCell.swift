@@ -1,26 +1,27 @@
 //
-//  PersonCollectionViewCell.swift
+//  PersonTableViewCell.swift
 //  People
 //
-//  Created by Martynas Kausas on 4/27/16.
+//  Created by Martynas Kausas on 4/28/16.
 //  Copyright © 2016 Marty Kausas. All rights reserved.
 //
 
 import UIKit
-import Haneke
 
-class PersonCollectionViewCell: UICollectionViewCell {
+class PersonTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var eventLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
     
-    static var cellIdentifier = "PersonCollectionViewCell"
+    static var cellIdentifier = "PersonTableViewCell"
     
     var attendee: Attendee? {
         didSet {
             nameLabel.text = attendee?.name
-
+            
             if let img = attendee?.profileImage {
                 profileImageView.image = img
             } else {
@@ -43,15 +44,17 @@ class PersonCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    override func prepareForReuse() {
-        profileImageView.image = UIImage()
-        nameLabel.text = ""
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        // round edges
         profileImageView.layer.cornerRadius = 10
         profileImageView.clipsToBounds = true
     }
+
+    override func setSelected(selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+    }
+    
 }
