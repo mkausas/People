@@ -44,13 +44,16 @@ class EventDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     var webViewUrl: String?
+    var webViewAttendee: Attendee?
 }
 
 extension EventDetailViewController: PersonCollectionViewDelegate {
     
-    func personCollectionViewPresent(url: String) {
+    func personCollectionViewPresent(url: String, attendee: Attendee) {
         self.webViewUrl = url
+        self.webViewAttendee = attendee
     }
 }
 
@@ -61,6 +64,7 @@ extension EventDetailViewController: UIViewControllerPreviewingDelegate {
         
         if let url = webViewUrl {
             viewController.url = NSURL(string: url)!
+            viewController.attendee = self.webViewAttendee
             viewController.preferredContentSize = CGSize(width: 0, height: 0)
             return viewController
         }

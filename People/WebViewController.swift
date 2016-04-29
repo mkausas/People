@@ -13,6 +13,7 @@ class WebViewController: UIViewController {
     @IBOutlet weak var webView: UIWebView!
     
     var url: NSURL?
+    var attendee: Attendee?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +43,11 @@ class WebViewController: UIViewController {
     // force touch option buttons
     override func previewActionItems() -> [UIPreviewActionItem] {
         let regularAction = UIPreviewAction(title: "Save", style: .Default) { (action: UIPreviewAction, vc: UIViewController) -> Void in
-
+            if let attendee = self.attendee {
+                CloudKitClient.savePerson(attendee)
+                print("saving!")
+            }
+            
         }
     
         let destructiveAction = UIPreviewAction(title: "Cancel", style: .Destructive) { (action: UIPreviewAction, vc: UIViewController) -> Void in

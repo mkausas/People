@@ -16,6 +16,10 @@ class Attendee {
     var id: String?
     var rsvpStatus: String?
     
+    var eventName: String?
+    var eventID: String?
+    var eventDate: String?
+    
     var profileImage: UIImage?
     var profileImageURL: NSURL?
     
@@ -23,6 +27,10 @@ class Attendee {
         name = attendeeDetails["name"] as? String
         id = attendeeDetails["id"] as? String
         rsvpStatus = attendeeDetails["rsvp_status"] as? String
+        
+        eventName = attendeeDetails["eventName"] as? String
+        eventID = attendeeDetails["eventID"] as? String
+        eventDate = attendeeDetails["eventDate"] as? String
         
         if let id = id {
             ApiClient.getUserPhoto(id) { (profileURL, error) in
@@ -44,11 +52,17 @@ class Attendee {
             }.resume()
     }
     
-    class func groupFromJSON(attendeeArray: NSArray) -> [Attendee] {
+    class func groupFromJSON(attendeeArray: [NSDictionary], event: Event) -> [Attendee] {
         var attendees = [Attendee]()
         
-        for attendee in attendeeArray {
-            attendees.append(Attendee(attendeeDetails: attendee as! NSDictionary))
+        for attendeeDetails in attendeeArray {
+            let attendee = Attendee(attendeeDetails: attendeeDetails)
+            
+            attendee.eventName = event.title
+            attendee.eventID = event.id
+            attendee.eventDate = event.date
+            
+            attendees.append(attendee)
         }
         
         return attendees
@@ -64,6 +78,10 @@ class Attendee {
             let profileImage = UIImage(contentsOfFile: profileImageAsset.fileURL.path!)
             
             attendee.name = attendeeRecord.valueForKey("name") as? String
+            attendee.eventName = attendeeRecord.valueForKey("eventName") as? String
+            attendee.eventID = attendeeRecord.valueForKey("eventID") as? String
+            attendee.eventDate = attendeeRecord.valueForKey("eventDate") as? String
+            
             attendee.profileImage = profileImage
             
             attendees.append(attendee)

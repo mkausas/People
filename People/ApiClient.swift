@@ -120,17 +120,21 @@ class ApiClient {
     /**
         Get the attendees list of a given event
      */
-    class func getEventAttendees(eventID: String, completion: (attendees: [Attendee]?, error: ErrorType?) -> ()) {
+    class func getEventAttendees(event: Event, completion: (attendees: [Attendee]?, error: ErrorType?) -> ()) {
         let params = ["fields": "", "limit": "1000"]
         
-        let graphRequest = FBSDKGraphRequest(graphPath: "\(eventID)/attending", parameters: params, HTTPMethod: "GET")
+        let graphRequest = FBSDKGraphRequest(graphPath: "\(event.id!)/attending", parameters: params, HTTPMethod: "GET")
         graphRequest.startWithCompletionHandler { (connection, result, error) in
             print("completed grabbing event attendee list!")
             print("result = \(result)")
             
             if error == nil {
                 let data = result["data"] as? NSArray
-                let people = Attendee.groupFromJSON(data!)
+                let people = Attendee.groupFromJSON(data! as! [NSDictionary], event: event)
+                
+                // grab event id from param
+                // grab event name from param
+                // eventdate
         
                 completion(attendees: people, error: nil)
             } else {

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol PersonCollectionViewDelegate {
-    func personCollectionViewPresent(url: String)
+    func personCollectionViewPresent(url: String, attendee: Attendee)
 }
 
 class PersonCollectionView: UICollectionView {
@@ -56,8 +56,7 @@ extension PersonCollectionView: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(PersonCollectionViewCell.cellIdentifier, forIndexPath: indexPath) as! PersonCollectionViewCell
         
-        let currAttendee = people[indexPath.row]
-        cell.attendee = currAttendee
+        cell.attendee = people[indexPath.row]
         
         return cell
     }
@@ -71,7 +70,7 @@ extension PersonCollectionView: UICollectionViewDelegate {
         print("highlighted")
         
         let url = "https://www.facebook.com/\(people[indexPath.row].id!)"
-        personCollectionViewDelegate?.personCollectionViewPresent(url)
+        personCollectionViewDelegate?.personCollectionViewPresent(url, attendee: people[indexPath.row])
         
         return false
     }

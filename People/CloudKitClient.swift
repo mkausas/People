@@ -18,11 +18,9 @@ class CloudKitClient {
         // CKRecord denotes a row in the table
         let personRecord = CKRecord(recordType: "People", recordID: noteID)
         personRecord.setObject(person.name, forKey: "name")
-//        personRecord.setObject(person.eventName, forKey: "eventName")
-//        personRecord.setObject(person.eventID, forKey: "eventID")
-//        personRecord.setObject(person.eventDate, forKey: "eventDate")
-        
-//        personRecord.setObject(NSDate(), forKey: "noteEditedDate")
+        personRecord.setObject(person.eventName, forKey: "eventName")
+        personRecord.setObject(person.eventID, forKey: "eventID")
+        personRecord.setObject(person.eventDate, forKey: "eventDate")
         
         let imageURL = saveImageLocally(person.profileImage, path: "temp_image_\(person.id!).jpg")
         
