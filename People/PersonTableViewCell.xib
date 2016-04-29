@@ -19,14 +19,8 @@
                         <color key="backgroundColor" red="0.17647058823529402" green="0.1803921568627451" blue="0.86239076747720367" alpha="0.0" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="77" id="LBk-ri-1Pd"/>
-                            <constraint firstAttribute="height" constant="77" id="R2o-nd-JyZ"/>
                             <constraint firstAttribute="height" constant="77" id="SAQ-c1-qfr"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="R2o-nd-JyZ"/>
-                            </mask>
-                        </variation>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Joseph Seung Jae Dollar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zCL-bq-PMP">
                         <rect key="frame" x="113" y="27" width="253" height="24"/>
@@ -64,7 +58,7 @@
                     <constraint firstItem="vEj-ft-Kug" firstAttribute="leading" secondItem="u3k-Xy-Gg0" secondAttribute="leading" id="XMr-eG-5B4"/>
                     <constraint firstItem="Zbm-Ve-CVI" firstAttribute="top" secondItem="zmT-BA-q76" secondAttribute="bottom" constant="1.5" id="YpQ-Nh-gxI"/>
                     <constraint firstItem="u3k-Xy-Gg0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="22" id="b8c-VV-v8P"/>
-                    <constraint firstItem="zCL-bq-PMP" firstAttribute="leading" secondItem="u3k-Xy-Gg0" secondAttribute="trailing" constant="14" id="fxz-pH-h0C"/>
+                    <constraint firstItem="zCL-bq-PMP" firstAttribute="leading" secondItem="u3k-Xy-Gg0" secondAttribute="trailing" constant="14" id="bM1-nE-9fM"/>
                     <constraint firstItem="u3k-Xy-Gg0" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="lMI-zP-ab1"/>
                     <constraint firstAttribute="bottom" secondItem="vEj-ft-Kug" secondAttribute="bottom" id="ocj-gs-thL"/>
                     <constraint firstAttribute="trailing" secondItem="zmT-BA-q76" secondAttribute="trailing" constant="8" id="psz-9y-QeY"/>

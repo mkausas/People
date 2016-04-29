@@ -20,10 +20,11 @@ class PersonTableViewCell: UITableViewCell {
     
     var attendee: Attendee? {
         didSet {
-            nameLabel.text = attendee?.name
+
+            self.nameLabel.text = self.attendee?.name
             
-            if let img = attendee?.profileImage {
-                profileImageView.image = img
+            if let img = self.attendee?.profileImage {
+                self.profileImageView.image = img
             } else {
                 let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
                 dispatch_async(dispatch_get_global_queue(priority, 0), {

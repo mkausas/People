@@ -86,6 +86,27 @@ class CloudKitClient {
     
     // --- Retrieval of Data --- //
     
+    static var peopleRecords = [CKRecord]()
+    class func getPeople(completion: (people: [Attendee]?, error: NSError?) -> ()) {
+        let container = CKContainer.defaultContainer()
+        let privateDatabase = container.privateCloudDatabase
+        let predicate = NSPredicate(value: true)
+        
+        let query = CKQuery(recordType: "People", predicate: predicate)
+        
+        privateDatabase.performQuery(query, inZoneWithID: nil) { (results, error) -> Void in
+            if error == nil {
+                print(results)
+                
+                let people = Attendee.attendeeFromCK(results!)
+                completion(people: people, error: nil)
+            
+            } else {
+                completion(people: nil, error: error)
+            }
+        }
+    }
+    
     
     
 }

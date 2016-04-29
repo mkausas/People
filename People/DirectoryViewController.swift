@@ -15,10 +15,13 @@ class DirectoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ApiClient.getEventAttendees("1561543284172468") { (attendees, error) in
+        CloudKitClient.getPeople { (people, error) in
             if error == nil {
-                self.personTableView.people = attendees!
-                self.personTableView.reloadData()
+                self.personTableView.people = people!
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.personTableView.reloadData()
+                })
             } else {
                 print("error grabbing event attendees")
             }

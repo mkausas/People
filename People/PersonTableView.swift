@@ -51,7 +51,8 @@ extension PersonTableView: UITableViewDataSource {
 extension PersonTableView: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("selected")
-        CloudKitClient.savePerson(people[indexPath.row])
+//        CloudKitClient.savePerson(people[indexPath.row])
+//        CloudKitClient.getPeople()
     }
     
 }
