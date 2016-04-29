@@ -21,6 +21,8 @@
 		BD2AFC2F1CD0579800622469 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD2AFC2D1CD0579800622469 /* LaunchScreen.storyboard */; };
 		BD2AFC3A1CD0579800622469 /* PeopleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2AFC391CD0579800622469 /* PeopleTests.swift */; };
 		BD2AFC451CD0579800622469 /* PeopleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2AFC441CD0579800622469 /* PeopleUITests.swift */; };
+		BD2FFDB11CD3CF670043B4B4 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD2FFDB01CD3CF670043B4B4 /* CloudKit.framework */; };
+		BD2FFDB31CD3D96A0043B4B4 /* CloudKitClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2FFDB21CD3D96A0043B4B4 /* CloudKitClient.swift */; };
 		BD4C677E1CD1E555005FB9B8 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C677D1CD1E555005FB9B8 /* WebViewController.swift */; };
 		BDD2DB331CD0597700DE4513 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD2DB321CD0597700DE4513 /* FBSDKCoreKit.framework */; };
 		BDD2DB351CD05C0400DE4513 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD2DB341CD05C0400DE4513 /* FBSDKLoginKit.framework */; };
@@ -76,6 +78,9 @@
 		BD2AFC401CD0579800622469 /* PeopleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeopleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD2AFC441CD0579800622469 /* PeopleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleUITests.swift; sourceTree = "<group>"; };
 		BD2AFC461CD0579800622469 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD2FFDAF1CD3CF400043B4B4 /* People.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = People.entitlements; sourceTree = "<group>"; };
+		BD2FFDB01CD3CF670043B4B4 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		BD2FFDB21CD3D96A0043B4B4 /* CloudKitClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitClient.swift; sourceTree = "<group>"; };
 		BD4C677D1CD1E555005FB9B8 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		BDD2DB321CD0597700DE4513 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		BDD2DB341CD05C0400DE4513 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../../FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -101,6 +106,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDD2DB351CD05C0400DE4513 /* FBSDKLoginKit.framework in Frameworks */,
+				BD2FFDB11CD3CF670043B4B4 /* CloudKit.framework in Frameworks */,
 				BDD2DB331CD0597700DE4513 /* FBSDKCoreKit.framework in Frameworks */,
 				6696BD0E083B3568622E0F36 /* Pods_People.framework in Frameworks */,
 			);
@@ -187,6 +193,7 @@
 		BD2AFC201CD0579800622469 /* People */ = {
 			isa = PBXGroup;
 			children = (
+				BD2FFDAF1CD3CF400043B4B4 /* People.entitlements */,
 				BDD2DB361CD060E800DE4513 /* Networking */,
 				BDD2DB3B1CD0744800DE4513 /* Models */,
 				BDD2DB391CD0743B00DE4513 /* Views */,
@@ -222,6 +229,7 @@
 		BD2AFC541CD0588B00622469 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BD2FFDB01CD3CF670043B4B4 /* CloudKit.framework */,
 				BDD2DB341CD05C0400DE4513 /* FBSDKLoginKit.framework */,
 				BDD2DB321CD0597700DE4513 /* FBSDKCoreKit.framework */,
 				D07F74C8869C4A50A105D3B2 /* Pods_People.framework */,
@@ -233,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				BDD2DB371CD060F400DE4513 /* ApiClient.swift */,
+				BD2FFDB21CD3D96A0043B4B4 /* CloudKitClient.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -341,7 +350,12 @@
 				TargetAttributes = {
 					BD2AFC1D1CD0579800622469 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = DMWCPKYXAY;
+						DevelopmentTeam = 43BNF9V2VP;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					BD2AFC341CD0579800622469 = {
 						CreatedOnToolsVersion = 7.3;
@@ -456,6 +470,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD2FFDB31CD3D96A0043B4B4 /* CloudKitClient.swift in Sources */,
 				BD23206E1CD312C400F4A6BF /* LoginViewController.swift in Sources */,
 				BDD2DB571CD1A38100DE4513 /* PersonCollectionView.swift in Sources */,
 				BDD2DB521CD19F6800DE4513 /* PersonCollectionViewCell.swift in Sources */,
@@ -616,12 +631,13 @@
 			baseConfigurationReference = 206EFD9CF42916A9BCB534B4 /* Pods-People.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = People/People.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = /Users/martynaskausas/Documents/FacebookSDK;
 				INFOPLIST_FILE = People/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.martykausas.People;
+				PRODUCT_BUNDLE_IDENTIFIER = com.martykausas.People3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -632,12 +648,13 @@
 			baseConfigurationReference = D0DDE8D82291463858E1D52C /* Pods-People.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = People/People.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = /Users/martynaskausas/Documents/FacebookSDK;
 				INFOPLIST_FILE = People/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.martykausas.People;
+				PRODUCT_BUNDLE_IDENTIFIER = com.martykausas.People3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

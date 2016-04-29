@@ -85,7 +85,7 @@ class SearchViewController: UIViewController {
         
         if let vc = destinationViewController as? EventDetailViewController {
             
-            vc.bannerImage = personTableView.selectedEventImage
+//            vc.bannerImage = personTableView.selectedEventImage
             
             ApiClient.getEventAttendees("\(personTableView.events[personTableView.indexPathForSelectedRow!.row].id!)") { (attendees, error) in
                 if error == nil {

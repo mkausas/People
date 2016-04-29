@@ -57,10 +57,13 @@ extension EventDetailViewController: UIViewControllerPreviewingDelegate {
     func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("WebViewController") as? WebViewController else { return nil }
         
-        viewController.url = NSURL(string: webViewUrl!)!
-        viewController.preferredContentSize = CGSize(width: 0, height: 0)
+        if let url = webViewUrl {
+            viewController.url = NSURL(string: url)!
+            viewController.preferredContentSize = CGSize(width: 0, height: 0)
+            return viewController
+        }
         
-        return viewController
+        return nil
     }
     
     func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
