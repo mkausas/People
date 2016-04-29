@@ -12,6 +12,8 @@ class SearchViewController: UIViewController {
 
     @IBOutlet weak var personTableView: EventTableView!
     
+    let refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,7 +29,6 @@ class SearchViewController: UIViewController {
         personTableView.eventTableViewDelegate = self
         
         // pull down to refresh
-        let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(SearchViewController.refreshControlAction(_:)), forControlEvents: UIControlEvents.ValueChanged)
         personTableView.insertSubview(refreshControl, atIndex: 0)
         
@@ -39,9 +40,8 @@ class SearchViewController: UIViewController {
     
     func refreshControlAction(refreshControl: UIRefreshControl) {
         reloadData()
-        refreshControl.endRefreshing()
     }
-    
+
     func reloadData() {
         if ApiClient.USER_ID == nil {
             print("cannot grab data because we lack an id, getting self")
@@ -55,7 +55,6 @@ class SearchViewController: UIViewController {
                     if ApiClient.checkLoggedIn(error) == false {
                         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("LoginViewController") as? LoginViewController
                         
-
                         self.presentViewController(vc!, animated: true, completion: {
                             print("presented")
                         })
@@ -74,6 +73,7 @@ class SearchViewController: UIViewController {
             if error == nil {
                 self.personTableView.setData(events!)
                 self.personTableView.reloadData()
+                self.refreshControl.endRefreshing()
             }
         }
     }
@@ -86,14 +86,14 @@ class SearchViewController: UIViewController {
         if let vc = destinationViewController as? EventDetailViewController {
             
 //            vc.bannerImage = personTableView.selectedEventImage
-            
-            ApiClient.getEventAttendees("\(personTableView.events[personTableView.indexPathForSelectedRow!.row].id!)") { (attendees, error) in
+            let event = personTableView.events[personTableView.indexPathForSelectedRow!.row]
+            ApiClient.getEventAttendees("\(event.id!)") { (attendees, error) in
                 if error == nil {
                     let selectedRow = self.personTableView.selectedRowIndex!
                     print("self.personTableView.indexPathForSelectedRow!.row = \(self.personTableView.selectedRowIndex)")
                     self.personTableView.events[selectedRow].attendees = attendees
-                    vc.event = self.personTableView.events[selectedRow]
-
+                    vc.event = event
+                    
                 } else {
                     print("Error: \(error)")
                 }

@@ -5,7 +5,6 @@ use_frameworks!
 
 target 'People' do
 	pod 'AFNetworking'
-	pod 'HanekeSwift'
 end
 
 target 'PeopleTests' do

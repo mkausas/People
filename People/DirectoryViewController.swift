@@ -15,17 +15,8 @@ class DirectoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        CloudKitClient.getPeople { (people, error) in
-            if error == nil {
-                self.personTableView.people = people!
-                
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.personTableView.reloadData()
-                })
-            } else {
-                print("error grabbing event attendees")
-            }
-        }
+
+        reloadData()
         
         // pull down to refresh
         let refreshControl = UIRefreshControl()
@@ -36,12 +27,26 @@ class DirectoryViewController: UIViewController {
     }
     
     func refreshControlAction(refreshControl: UIRefreshControl) {
-        reloadData()
-        refreshControl.endRefreshing()
+        reloadData(refreshControl)
+    }
+    
+    func reloadData(refreshControl: UIRefreshControl?) {
+        CloudKitClient.getPeople { (people, error) in
+            if error == nil {
+                self.personTableView.people = people!
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.personTableView.reloadData()
+                    refreshControl?.endRefreshing()
+                })
+            } else {
+                print("error grabbing event attendees")
+            }
+        }
     }
     
     func reloadData() {
-        // TODO: Add reload data here
+        reloadData(nil)
     }
 
     override func didReceiveMemoryWarning() {

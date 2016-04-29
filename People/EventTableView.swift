@@ -60,8 +60,6 @@ extension EventTableView: UITableViewDataSource {
 extension EventTableView: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.dequeueReusableCellWithIdentifier(EventTableViewCell.cellIdentifier, forIndexPath: indexPath) as! EventTableViewCell
-        
         selectedRowIndex = indexPath.row
         eventTableViewDelegate?.eventTableViewShowDetail(events[indexPath.row])
     }

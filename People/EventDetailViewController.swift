@@ -14,11 +14,13 @@ class EventDetailViewController: UIViewController {
 
     @IBOutlet weak var personCollectionView: PersonCollectionView!
     
-    var bannerImage: UIImage?
     var event: Event? {
         didSet {
-            personCollectionView.setPeople(event!.attendees!)
-            self.title = event!.title!
+            if let attendees = event?.attendees {
+                personCollectionView.setPeople(attendees)
+            }
+            
+            self.title = event?.title!
         }
     }
     
