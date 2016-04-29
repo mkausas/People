@@ -15,7 +15,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         let loginButton = FBSDKLoginButton()
-        loginButton.readPermissions = ["public_profile", "user_events", "user_friends", "user_about_me", "user_about_me", "user_photos", "user_tagged_places"]
+        loginButton.readPermissions = ["public_profile", "user_events", "user_friends", "user_about_me", "user_tagged_places"]
         
         loginButton.center = self.view.center
         

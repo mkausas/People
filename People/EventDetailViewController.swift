@@ -13,12 +13,13 @@ import UIKit
 class EventDetailViewController: UIViewController {
 
     @IBOutlet weak var personCollectionView: PersonCollectionView!
+    @IBOutlet weak var bannerImageView: UIImageView!
     
+    var bannerImage: UIImage?
     var event: Event? {
         didSet {
             personCollectionView.setPeople(event!.attendees!)
             self.title = event!.title!
-
         }
     }
     
@@ -26,22 +27,23 @@ class EventDetailViewController: UIViewController {
         super.viewDidLoad()
         
         if traitCollection.forceTouchCapability == .Available {
-            
             self.registerForPreviewingWithDelegate(self, sourceView: personCollectionView)
         }
         
         personCollectionView.personCollectionViewDelegate = self
         personCollectionView.setupData()
         
+        if let img = bannerImage {
+            bannerImageView.clipsToBounds = true
+            bannerImageView.image = img
+        } else {
+            bannerImageView.hidden = true
+        }
+        
         if let attendees = event?.attendees {
             personCollectionView.setPeople(attendees)
             print("set attendees")
         }
-        
-        // check for force touch
-//        if( traitCollection.forceTouchCapability == .Available) {
-//            registerForPreviewingWithDelegate(self, sourceView: view)
-//        }
     }
     
     override func didReceiveMemoryWarning() {

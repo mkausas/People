@@ -33,6 +33,7 @@ class PersonCollectionView: UICollectionView {
         
         self.collectionViewLayout = layout
         
+        
         self.delegate = self
         self.dataSource = self
     }
@@ -74,6 +75,14 @@ extension PersonCollectionView: UICollectionViewDelegate {
         
         return false
     }
+    
+    //Use for size
+    func collectionView(collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                               sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSize(width: self.frame.width/3, height: 1.366 * (self.frame.width / 3))
+    }
+    
     
 //    minimumInteritemSpacingForSectionAtIndex
     

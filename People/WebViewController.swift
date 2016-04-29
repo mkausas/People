@@ -17,25 +17,29 @@ class WebViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.prefersStatusBarHidden()
-        
         if let url = url {
             let requestObj = NSURLRequest(URL: url)
             webView.loadRequest(requestObj);
         }
-    }
+        
+//        UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.None)
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        setNeedsStatusBarAppearanceUpdate()
+    }
+
     @IBAction func onDone(sender: AnyObject) {
         self.dismissViewControllerAnimated(true) { 
             
         }
     }
     
+    
+    // force touch option buttons
     override func previewActionItems() -> [UIPreviewActionItem] {
         let regularAction = UIPreviewAction(title: "Save", style: .Default) { (action: UIPreviewAction, vc: UIViewController) -> Void in
 
@@ -44,15 +48,20 @@ class WebViewController: UIViewController {
         return [regularAction]
     }
     
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
     
-    /*
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        UIApplication.sharedApplication().statusBarHidden = false
     }
-    */
+ 
 
 }

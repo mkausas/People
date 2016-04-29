@@ -31,6 +31,9 @@ class SearchViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(SearchViewController.refreshControlAction(_:)), forControlEvents: UIControlEvents.ValueChanged)
         personTableView.insertSubview(refreshControl, atIndex: 0)
         
+    }
+    
+    override func viewDidAppear(animated: Bool) {
         reloadData()
     }
     
@@ -82,19 +85,17 @@ class SearchViewController: UIViewController {
         
         if let vc = destinationViewController as? EventDetailViewController {
             
-//            if personTableView.events[personTableView.indexPathForSelectedRow!.row].attendees?.count < 1 {
-                ApiClient.getEventAttendees("\(personTableView.events[personTableView.indexPathForSelectedRow!.row].id!)") { (attendees, error) in
-                    if error == nil {
-                        self.personTableView.events[self.personTableView.indexPathForSelectedRow!.row].attendees = attendees
-                        vc.event = self.personTableView.events[self.personTableView.indexPathForSelectedRow!.row]
+            vc.bannerImage = personTableView.selectedEventImage
+            
+            ApiClient.getEventAttendees("\(personTableView.events[personTableView.indexPathForSelectedRow!.row].id!)") { (attendees, error) in
+                if error == nil {
+                    self.personTableView.events[self.personTableView.indexPathForSelectedRow!.row].attendees = attendees
+                    vc.event = self.personTableView.events[self.personTableView.indexPathForSelectedRow!.row]
 
-                    } else {
-                        print("Error: \(error)")
-                    }
+                } else {
+                    print("Error: \(error)")
                 }
-//            } else {
-//                vc.event = self.personTableView.events[self.personTableView.indexPathForSelectedRow!.row]
-//            }
+            }
         }
     }
 }
