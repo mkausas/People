@@ -11,12 +11,13 @@ import UIKit
 class SearchViewController: UIViewController {
 
     @IBOutlet weak var personTableView: EventTableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         self.navigationController!.navigationBar.barTintColor = UIColor.blackColor()
         self.navigationController!.navigationBar.tintColor = UIColor.whiteColor()
         
@@ -26,12 +27,12 @@ class SearchViewController: UIViewController {
         self.tabBarController!.tabBar.tintColor = UIColor.whiteColor()
 
 
+        searchBar.delegate = self
         personTableView.eventTableViewDelegate = self
         
         // pull down to refresh
         refreshControl.addTarget(self, action: #selector(SearchViewController.refreshControlAction(_:)), forControlEvents: UIControlEvents.ValueChanged)
         personTableView.insertSubview(refreshControl, atIndex: 0)
-        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -79,18 +80,17 @@ class SearchViewController: UIViewController {
     }
     
     // MARK: - Navigation
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destinationViewController = segue.destinationViewController
         
         if let vc = destinationViewController as? EventDetailViewController {
             
-            let event = personTableView.events[personTableView.indexPathForSelectedRow!.row]
+            let event = personTableView.filteredEvents[personTableView.indexPathForSelectedRow!.row]
             ApiClient.getEventAttendees(event) { (attendees, error) in
                 if error == nil {
                     let selectedRow = self.personTableView.selectedRowIndex!
                     print("self.personTableView.indexPathForSelectedRow!.row = \(self.personTableView.selectedRowIndex)")
-                    self.personTableView.events[selectedRow].attendees = attendees
+                    self.personTableView.filteredEvents[selectedRow].attendees = attendees
                     vc.event = event
                     
                 } else {
@@ -104,6 +104,32 @@ class SearchViewController: UIViewController {
 extension SearchViewController: EventTableViewDelegate {
     func eventTableViewShowDetail(event: Event) {
         self.performSegueWithIdentifier("showEventDetail", sender: nil)
+    }
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        let events = personTableView.events
+        
+        personTableView.filteredEvents = searchText.isEmpty ? events : events.filter({(event: Event) -> Bool in
+            
+            let containsEventTitle = event.title!.rangeOfString(searchText, options: .CaseInsensitiveSearch) != nil
+            let containsEventAuthor = event.owner!.rangeOfString(searchText, options: .CaseInsensitiveSearch) != nil
+            
+            return containsEventTitle || containsEventAuthor
+        })
+        
+        personTableView.reloadData()
+    }
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        self.searchBar.showsCancelButton = true
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
     }
 }
 

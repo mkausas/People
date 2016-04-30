@@ -193,6 +193,7 @@
 		BD2AFC201CD0579800622469 /* People */ = {
 			isa = PBXGroup;
 			children = (
+				BD579E1A1CD3FA340075DE9C /* Extensions */,
 				BD2FFDAF1CD3CF400043B4B4 /* People.entitlements */,
 				BDD2DB361CD060E800DE4513 /* Networking */,
 				BDD2DB3B1CD0744800DE4513 /* Models */,
@@ -203,7 +204,6 @@
 				BD2AFC2D1CD0579800622469 /* LaunchScreen.storyboard */,
 				BD2AFC301CD0579800622469 /* Info.plist */,
 				BD2AFC281CD0579800622469 /* People.xcdatamodeld */,
-				BDD2DB4C1CD142FD00DE4513 /* StringExtension.swift */,
 			);
 			path = People;
 			sourceTree = "<group>";
@@ -235,6 +235,14 @@
 				D07F74C8869C4A50A105D3B2 /* Pods_People.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BD579E1A1CD3FA340075DE9C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BDD2DB4C1CD142FD00DE4513 /* StringExtension.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		BDD2DB361CD060E800DE4513 /* Networking */ = {

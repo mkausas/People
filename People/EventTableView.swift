@@ -15,6 +15,7 @@ protocol EventTableViewDelegate {
 class EventTableView: UITableView {
     
     var events = [Event]()
+    var filteredEvents = [Event]()
     var eventTableViewDelegate: EventTableViewDelegate?
     var selectedEventImage: UIImage?
     var selectedRowIndex: Int?
@@ -28,6 +29,7 @@ class EventTableView: UITableView {
     
     func setData(data: [Event]) {
         events = data
+        filteredEvents = events
     }
     
     func setupTableView() {
@@ -45,13 +47,13 @@ class EventTableView: UITableView {
 
 extension EventTableView: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return events.count
+        return filteredEvents.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(EventTableViewCell.cellIdentifier, forIndexPath: indexPath) as! EventTableViewCell
         
-        cell.event = events[indexPath.row]
+        cell.event = filteredEvents[indexPath.row]
         
         return cell
     }
@@ -61,6 +63,6 @@ extension EventTableView: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         selectedRowIndex = indexPath.row
-        eventTableViewDelegate?.eventTableViewShowDetail(events[indexPath.row])
+        eventTableViewDelegate?.eventTableViewShowDetail(filteredEvents[indexPath.row])
     }
 }

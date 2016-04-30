@@ -11,6 +11,7 @@ import UIKit
 class PersonTableView: UITableView {
 
     var people = [Attendee]()
+    var filteredData = [Attendee]()
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -35,13 +36,13 @@ class PersonTableView: UITableView {
 
 extension PersonTableView: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return people.count
+        return filteredData.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(PersonTableViewCell.cellIdentifier, forIndexPath: indexPath) as! PersonTableViewCell
         
-        cell.attendee = people[indexPath.row]
+        cell.attendee = filteredData[indexPath.row]
         
         return cell
     }
@@ -51,8 +52,6 @@ extension PersonTableView: UITableViewDataSource {
 extension PersonTableView: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("selected")
-//        CloudKitClient.savePerson(people[indexPath.row])
-//        CloudKitClient.getPeople()
     }
     
 }

@@ -88,15 +88,12 @@ class ApiClient {
      */
     class func getUserEvents(userID: String, completion: (events: [Event]?, error: ErrorType?) -> ()) {
         
-        
-        
         if FBSDKAccessToken.currentAccessToken().hasGranted("user_events") == false {
             print("lacking access to events")
             return
         }
         
-        
-        let params = ["fields": "id, name, cover, description, guest_list_enabled, owner, start_time"]
+        let params = ["fields": "id, name, cover, description, guest_list_enabled, owner, start_time", "limit": "50"]
         let graphRequest = FBSDKGraphRequest(graphPath: "\(userID)/events", parameters: params, HTTPMethod: "GET")
         graphRequest.startWithCompletionHandler { (connection, result, error) in
             print("completed grabbing events request!")

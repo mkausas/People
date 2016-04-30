@@ -22,6 +22,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="5X8-TG-5kq"/>
                                 </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="barTintColor" red="0.078431372549019607" green="0.078431372549019607" blue="0.086274509803921567" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
@@ -56,6 +57,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="personTableView" destination="FOq-o7-sB7" id="COW-aE-Uvp"/>
+                        <outlet property="searchBar" destination="Ebn-68-5OS" id="n1F-Oh-Wqx"/>
                         <segue destination="68T-e4-v1r" kind="show" identifier="showEventDetail" id="V5i-dZ-QIN"/>
                     </connections>
                 </viewController>
@@ -138,6 +140,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="78f-YL-Ag1"/>
                                 </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="barTintColor" red="0.074509803921568626" green="0.074509803921568626" blue="0.074509803921568626" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
@@ -162,6 +165,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="personCollectionView" destination="nD7-sV-ED9" id="3EE-IW-Uz5"/>
+                        <outlet property="searchBar" destination="KKV-Z1-58g" id="xxH-AZ-97W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IFD-Mc-LBp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -254,6 +258,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="tYF-Gd-jM2"/>
                                 </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="barTintColor" red="0.074509803921568626" green="0.074509803921568626" blue="0.074509803921568626" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
@@ -293,6 +298,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="personTableView" destination="41h-Wy-FEH" id="XkY-yc-ocv"/>
+                        <outlet property="searchBar" destination="Fjg-0m-xNI" id="0qr-Br-IE9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ern-mO-Uox" userLabel="First Responder" sceneMemberID="firstResponder"/>

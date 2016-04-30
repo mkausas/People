@@ -15,9 +15,9 @@ protocol PersonCollectionViewDelegate {
 class PersonCollectionView: UICollectionView {
     
     var people = [Attendee]()
+    var filteredData = [Attendee]()
+    
     var personCollectionViewDelegate: PersonCollectionViewDelegate?
-    
-    
     
     func setupData() {
         
@@ -33,13 +33,13 @@ class PersonCollectionView: UICollectionView {
         
         self.collectionViewLayout = layout
         
-        
         self.delegate = self
         self.dataSource = self
     }
     
     func setPeople(attendees: [Attendee]) {
         people = attendees
+        filteredData = people
         reloadData()
     }
     
@@ -50,13 +50,13 @@ class PersonCollectionView: UICollectionView {
 
 extension PersonCollectionView: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return people.count
+        return filteredData.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(PersonCollectionViewCell.cellIdentifier, forIndexPath: indexPath) as! PersonCollectionViewCell
         
-        cell.attendee = people[indexPath.row]
+        cell.attendee = filteredData[indexPath.row]
         
         return cell
     }
@@ -69,8 +69,8 @@ extension PersonCollectionView: UICollectionViewDelegate {
     func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
         print("highlighted")
         
-        let url = "https://www.facebook.com/\(people[indexPath.row].id!)"
-        personCollectionViewDelegate?.personCollectionViewPresent(url, attendee: people[indexPath.row])
+        let url = "https://www.facebook.com/\(filteredData[indexPath.row].id!)"
+        personCollectionViewDelegate?.personCollectionViewPresent(url, attendee: filteredData[indexPath.row])
         
         return false
     }
