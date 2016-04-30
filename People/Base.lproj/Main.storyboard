@@ -495,7 +495,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="s6D-Kr-ugb" kind="relationship" relationship="viewControllers" id="pxG-IU-vnS"/>
-                        <segue destination="Aww-ES-Gyo" kind="relationship" relationship="viewControllers" id="ugl-mi-H4D"/>
                         <segue destination="qAK-40-pff" kind="relationship" relationship="viewControllers" id="sBt-Mv-j10"/>
                         <segue destination="9CS-al-FSE" kind="relationship" relationship="viewControllers" id="hbc-kD-0Dx"/>
                     </connections>

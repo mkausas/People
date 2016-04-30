@@ -12,8 +12,8 @@ import UIKit
 
 class ApiClient {
     
-    static var USER_ID: String?
-    static var pagingURL: String?
+    static var USER_ID: String? //= "1d507820fe6f89aefd7c6df21597de2a"
+    
     
     /** 
         Get User information about self
@@ -21,6 +21,10 @@ class ApiClient {
     class func getSelf(completion: (userID: String?, error: NSError?) -> ()) {
         let params = ["fields": ""]
         
+//        let token = FBSDKAccessToken.currentAccessToken()
+//        print("token = \(token.expirationDate)")
+//        print("token = \(token.tokenString)")
+//        
         let graphRequest = FBSDKGraphRequest(graphPath: "/me", parameters: params, HTTPMethod: "GET")
         graphRequest.startWithCompletionHandler { (connection, result, error) in
             print("completed request!")
@@ -106,10 +110,6 @@ class ApiClient {
                 var events = [Event]()
                 for event in (result["data"] as! NSArray) {
                     events.append(Event(eventDetails: event as! NSDictionary))
-                }
-                
-                if let pagingURL = (result["paging"] as? NSDictionary)!["next"] as? String {
-                    self.pagingURL = pagingURL
                 }
                 
                 completion(events: events, error: nil)
