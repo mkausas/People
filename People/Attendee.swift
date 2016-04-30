@@ -78,6 +78,7 @@ class Attendee {
             let profileImage = UIImage(contentsOfFile: profileImageAsset.fileURL.path!)
             
             attendee.name = attendeeRecord.valueForKey("name") as? String
+            attendee.id = attendeeRecord.valueForKey("id") as? String
             attendee.eventName = attendeeRecord.valueForKey("eventName") as? String
             attendee.eventID = attendeeRecord.valueForKey("eventID") as? String
             attendee.eventDate = attendeeRecord.valueForKey("eventDate") as? String

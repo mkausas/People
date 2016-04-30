@@ -41,14 +41,24 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="viE-0m-CcN">
+                                <rect key="frame" x="157.5" y="303.5" width="60" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="2nA-Vr-KzH"/>
+                                    <constraint firstAttribute="height" constant="60" id="Ch7-VM-Ee3"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.13333333333333333" green="0.13725490196078433" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="viE-0m-CcN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NnC-YK-Bse"/>
                             <constraint firstAttribute="trailing" secondItem="Ebn-68-5OS" secondAttribute="trailing" id="P5s-kx-Dar"/>
                             <constraint firstAttribute="trailing" secondItem="FOq-o7-sB7" secondAttribute="trailing" id="XPG-Ry-Bjb"/>
                             <constraint firstItem="FOq-o7-sB7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Xy6-MX-T7O"/>
                             <constraint firstItem="FOq-o7-sB7" firstAttribute="top" secondItem="Ebn-68-5OS" secondAttribute="bottom" id="YID-e3-11J"/>
                             <constraint firstItem="Ebn-68-5OS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="ZzX-m7-XNP"/>
+                            <constraint firstItem="viE-0m-CcN" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="dtj-M3-PRF"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="FOq-o7-sB7" secondAttribute="bottom" id="fOW-0W-EfW"/>
                             <constraint firstItem="Ebn-68-5OS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="oUH-AR-NJa"/>
                         </constraints>
@@ -56,6 +66,7 @@
                     <navigationItem key="navigationItem" title="Find" id="PkT-ro-dNh"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="loaderView" destination="viE-0m-CcN" id="aTF-Tl-J7n"/>
                         <outlet property="personTableView" destination="FOq-o7-sB7" id="COW-aE-Uvp"/>
                         <outlet property="searchBar" destination="Ebn-68-5OS" id="n1F-Oh-Wqx"/>
                         <segue destination="68T-e4-v1r" kind="show" identifier="showEventDetail" id="V5i-dZ-QIN"/>
@@ -282,14 +293,24 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rw0-6T-AUq">
+                                <rect key="frame" x="157" y="304" width="60" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="097-1d-Tw6"/>
+                                    <constraint firstAttribute="height" constant="60" id="fHs-zc-oP0"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.070588235294117646" green="0.074509803921568626" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Fjg-0m-xNI" secondAttribute="trailing" id="ETl-20-Exr"/>
                             <constraint firstItem="Fjg-0m-xNI" firstAttribute="leading" secondItem="eYy-8t-nwh" secondAttribute="leading" id="EjE-Kj-lzF"/>
                             <constraint firstItem="ci7-d3-uFd" firstAttribute="top" secondItem="41h-Wy-FEH" secondAttribute="bottom" id="VBr-FU-oyd"/>
+                            <constraint firstItem="Rw0-6T-AUq" firstAttribute="centerY" secondItem="eYy-8t-nwh" secondAttribute="centerY" id="VrI-2T-q7W"/>
                             <constraint firstItem="41h-Wy-FEH" firstAttribute="top" secondItem="Fjg-0m-xNI" secondAttribute="bottom" id="Z9Q-Gt-2g8"/>
                             <constraint firstAttribute="trailing" secondItem="41h-Wy-FEH" secondAttribute="trailing" id="aXO-21-aAj"/>
+                            <constraint firstItem="Rw0-6T-AUq" firstAttribute="centerX" secondItem="eYy-8t-nwh" secondAttribute="centerX" id="es8-95-wsB"/>
                             <constraint firstItem="Fjg-0m-xNI" firstAttribute="top" secondItem="esn-wz-wRM" secondAttribute="bottom" id="hHK-Ie-c4e"/>
                             <constraint firstItem="41h-Wy-FEH" firstAttribute="leading" secondItem="eYy-8t-nwh" secondAttribute="leading" id="pv4-xf-F8X"/>
                         </constraints>
@@ -297,6 +318,7 @@
                     <tabBarItem key="tabBarItem" title="Met" image="hands" id="7OZ-vJ-djn"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="loaderView" destination="Rw0-6T-AUq" id="zim-nf-mOV"/>
                         <outlet property="personTableView" destination="41h-Wy-FEH" id="XkY-yc-ocv"/>
                         <outlet property="searchBar" destination="Fjg-0m-xNI" id="0qr-Br-IE9"/>
                     </connections>

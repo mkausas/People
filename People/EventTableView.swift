@@ -17,9 +17,8 @@ class EventTableView: UITableView {
     var events = [Event]()
     var filteredEvents = [Event]()
     var eventTableViewDelegate: EventTableViewDelegate?
-    var selectedEventImage: UIImage?
     var selectedRowIndex: Int?
-
+    var isMoreDataLoading = false
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

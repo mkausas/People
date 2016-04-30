@@ -7,17 +7,26 @@
 //
 
 import UIKit
+import AASquaresLoading
 
 class SearchViewController: UIViewController {
 
     @IBOutlet weak var personTableView: EventTableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var loaderView: UIView!
     
+    
+    var loader: AASquaresLoading!
     let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
+        loader = AASquaresLoading(target: self.loaderView, size: 50)
+        loader.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0)
+        loader.color = UIColor.whiteColor()
+        loader.start()
+        
         self.navigationController!.navigationBar.barTintColor = UIColor.blackColor()
         self.navigationController!.navigationBar.tintColor = UIColor.whiteColor()
         
@@ -40,7 +49,9 @@ class SearchViewController: UIViewController {
     }
     
     func refreshControlAction(refreshControl: UIRefreshControl) {
+//        self.view.squareLoading.start(0.0)
         reloadData()
+        
     }
 
     func reloadData() {
@@ -73,6 +84,7 @@ class SearchViewController: UIViewController {
         ApiClient.getUserEvents(ApiClient.USER_ID!) { (events, error) in
             if error == nil {
                 self.personTableView.setData(events!)
+                self.loader.stop()
                 self.personTableView.reloadData()
                 self.refreshControl.endRefreshing()
             }

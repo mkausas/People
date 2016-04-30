@@ -5,6 +5,7 @@ use_frameworks!
 
 target 'People' do
 	pod 'AFNetworking'
+	pod 'AASquaresLoading'
 end
 
 target 'PeopleTests' do

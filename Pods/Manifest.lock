@@ -1,4 +1,5 @@
 PODS:
+  - AASquaresLoading (0.3.2)
   - AFNetworking (3.1.0):
     - AFNetworking/NSURLSession (= 3.1.0)
     - AFNetworking/Reachability (= 3.1.0)
@@ -16,9 +17,11 @@ PODS:
     - AFNetworking/NSURLSession
 
 DEPENDENCIES:
+  - AASquaresLoading
   - AFNetworking
 
 SPEC CHECKSUMS:
+  AASquaresLoading: 14da64695b9128cbda6b8558249bd0bbc72123b6
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
 
 COCOAPODS: 0.39.0

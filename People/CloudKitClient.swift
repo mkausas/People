@@ -13,11 +13,12 @@ import CloudKit
 class CloudKitClient {
     
     class func savePerson(person: Attendee) {
-        let noteID = CKRecordID(recordName: person.id!)
+        let personID = CKRecordID(recordName: person.id!)
         
         // CKRecord denotes a row in the table
-        let personRecord = CKRecord(recordType: "People", recordID: noteID)
+        let personRecord = CKRecord(recordType: "People", recordID: personID)
         personRecord.setObject(person.name, forKey: "name")
+        personRecord.setObject(person.id, forKey: "id")
         personRecord.setObject(person.eventName, forKey: "eventName")
         personRecord.setObject(person.eventID, forKey: "eventID")
         personRecord.setObject(person.eventDate, forKey: "eventDate")

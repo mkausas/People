@@ -20,13 +20,13 @@ class PersonTableViewCell: UITableViewCell {
     
     var attendee: Attendee? {
         didSet {
-
+            
             nameLabel.text = attendee?.name
             eventLabel.text = attendee?.eventName
             dateLabel.text = attendee?.eventDate
             
             if let img = attendee?.profileImage {
-                profileImageView.image = img
+                profileImageView.image = img                
             } else {
                 let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
                 dispatch_async(dispatch_get_global_queue(priority, 0), {
@@ -35,22 +35,25 @@ class PersonTableViewCell: UITableViewCell {
                         print("grabbing")
                     }
                     
-                    dispatch_async(dispatch_get_main_queue(), {
-                        self.alpha = 0
-                        self.profileImageView.image = self.attendee?.profileImage
-                        UIView.animateWithDuration(0.7, animations: {
-                            self.alpha = 1
-                        })
-                    })
+                    self.fadeInCell(self.profileImageView, image: self.attendee!.profileImage!, duration: 0.7)
                 })
             }
         }
     }
     
+    func fadeInCell(imageView: UIImageView, image: UIImage, duration: Float) {
+        dispatch_async(dispatch_get_main_queue(), {
+            imageView.alpha = 0
+            imageView.image = self.attendee?.profileImage
+            UIView.animateWithDuration(0.7, animations: {
+                imageView.alpha = 1
+            })
+        })
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        // round edges
         profileImageView.clipsToBounds = true
     }
 

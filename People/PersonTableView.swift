@@ -7,11 +7,17 @@
 //
 
 import UIKit
+import CloudKit
+
+protocol PersonTableViewDelegate {
+    func personTableViewDelegateReloadData()
+}
 
 class PersonTableView: UITableView {
 
     var people = [Attendee]()
     var filteredData = [Attendee]()
+    var personTableViewDelegate: PersonTableViewDelegate?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -26,6 +32,7 @@ class PersonTableView: UITableView {
         
         self.rowHeight = 114
         
+        self.allowsSelectionDuringEditing = true
         self.separatorStyle = UITableViewCellSeparatorStyle.None
         
         // set tableview data
@@ -52,6 +59,35 @@ extension PersonTableView: UITableViewDataSource {
 extension PersonTableView: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("selected")
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            print("delete")
+            let recordID = filteredData[indexPath.row].id
+            self.filteredData.removeAtIndex(indexPath.row)
+//            reloadData()
+            
+            
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            
+            let container = CKContainer.defaultContainer()
+            let privateDatabase = container.privateCloudDatabase
+            privateDatabase.deleteRecordWithID(CKRecordID(recordName: recordID!), completionHandler: { (recordID, error) in
+
+                if error == nil {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.personTableViewDelegate?.personTableViewDelegateReloadData()
+                    })
+                }
+            })
+            
+        }
     }
     
 }

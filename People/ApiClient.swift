@@ -13,6 +13,7 @@ import UIKit
 class ApiClient {
     
     static var USER_ID: String?
+    static var pagingURL: String?
     
     /** 
         Get User information about self
@@ -94,7 +95,9 @@ class ApiClient {
         }
         
         let params = ["fields": "id, name, cover, description, guest_list_enabled, owner, start_time", "limit": "50"]
-        let graphRequest = FBSDKGraphRequest(graphPath: "\(userID)/events", parameters: params, HTTPMethod: "GET")
+        let path = "\(userID)/events"
+        
+        let graphRequest = FBSDKGraphRequest(graphPath: path, parameters: params, HTTPMethod: "GET")
         graphRequest.startWithCompletionHandler { (connection, result, error) in
             print("completed grabbing events request!")
             print("result = \(result)")
@@ -103,6 +106,10 @@ class ApiClient {
                 var events = [Event]()
                 for event in (result["data"] as! NSArray) {
                     events.append(Event(eventDetails: event as! NSDictionary))
+                }
+                
+                if let pagingURL = (result["paging"] as? NSDictionary)!["next"] as? String {
+                    self.pagingURL = pagingURL
                 }
                 
                 completion(events: events, error: nil)
