@@ -41,7 +41,7 @@ class CloudKitClient {
         let tempImageName = path
         
         // grab profile image and save locally
-        let imageData: NSData = UIImageJPEGRepresentation(image!, 0.8)!
+        let imageData: NSData = UIImageJPEGRepresentation(image!, 1)!
         let path = documentsDirectoryPath.stringByAppendingPathComponent(tempImageName)
         let imageURL: NSURL? = NSURL(fileURLWithPath: path)
         imageData.writeToURL(imageURL!, atomically: true)

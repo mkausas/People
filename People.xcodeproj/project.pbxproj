@@ -24,6 +24,7 @@
 		BD2FFDB11CD3CF670043B4B4 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD2FFDB01CD3CF670043B4B4 /* CloudKit.framework */; };
 		BD2FFDB31CD3D96A0043B4B4 /* CloudKitClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2FFDB21CD3D96A0043B4B4 /* CloudKitClient.swift */; };
 		BD4C677E1CD1E555005FB9B8 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C677D1CD1E555005FB9B8 /* WebViewController.swift */; };
+		BD6128BF1CD49202002BEE20 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6128BE1CD49202002BEE20 /* QuizViewController.swift */; };
 		BDD2DB331CD0597700DE4513 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD2DB321CD0597700DE4513 /* FBSDKCoreKit.framework */; };
 		BDD2DB351CD05C0400DE4513 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD2DB341CD05C0400DE4513 /* FBSDKLoginKit.framework */; };
 		BDD2DB381CD060F400DE4513 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD2DB371CD060F400DE4513 /* ApiClient.swift */; };
@@ -82,6 +83,7 @@
 		BD2FFDB01CD3CF670043B4B4 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		BD2FFDB21CD3D96A0043B4B4 /* CloudKitClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitClient.swift; sourceTree = "<group>"; };
 		BD4C677D1CD1E555005FB9B8 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		BD6128BE1CD49202002BEE20 /* QuizViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		BDD2DB321CD0597700DE4513 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		BDD2DB341CD05C0400DE4513 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../../FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		BDD2DB371CD060F400DE4513 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				BD4C677D1CD1E555005FB9B8 /* WebViewController.swift */,
 				BD23206B1CD2DAAD00F4A6BF /* DirectoryViewController.swift */,
 				BD23206D1CD312C400F4A6BF /* LoginViewController.swift */,
+				BD6128BE1CD49202002BEE20 /* QuizViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -489,6 +492,7 @@
 				BD2AFC241CD0579800622469 /* ViewController.swift in Sources */,
 				BDD2DB4F1CD1488E00DE4513 /* Attendee.swift in Sources */,
 				BDD2DB551CD1A32200DE4513 /* EventDetailViewController.swift in Sources */,
+				BD6128BF1CD49202002BEE20 /* QuizViewController.swift in Sources */,
 				BDD2DB451CD078E200DE4513 /* SearchViewController.swift in Sources */,
 				BD2320661CD2D86400F4A6BF /* PersonTableView.swift in Sources */,
 				BD2AFC2A1CD0579800622469 /* People.xcdatamodeld in Sources */,
