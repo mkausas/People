@@ -21,14 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         UIApplication.sharedApplication().statusBarStyle = .LightContent
-
-//        ApiClient.getEvent("1561543284172468") { (event, error) in
-//            
-//        }
-        
-        ApiClient.getEventsFromIDs(BackupEvents.eventIDs) { (events, error) in
-            
-        }
         
         return true
     }

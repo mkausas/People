@@ -73,6 +73,8 @@ class SearchViewController: UIViewController {
             getUserEvents()
             personTableView.hidden = false
             personCollectionView.hidden = true
+            searchBar.resignFirstResponder()
+            searchBar.showsCancelButton = false
             break
             
     
