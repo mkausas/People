@@ -50,14 +50,15 @@ class QuizViewController: UIViewController {
         
         // get random index different from the previous
         var index = 0
-        while index == prevIndex {
+        repeat {
             if people.count == 0 {
                 break
             }
             
             index = Int(arc4random_uniform(UInt32(people.count)))
             print("index = \(index)")
-        }
+            
+        } while index == prevIndex
         
         let person = people[index]
         nameLabel.text = person.name

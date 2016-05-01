@@ -25,6 +25,8 @@
 		BD2FFDB31CD3D96A0043B4B4 /* CloudKitClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2FFDB21CD3D96A0043B4B4 /* CloudKitClient.swift */; };
 		BD4C677E1CD1E555005FB9B8 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C677D1CD1E555005FB9B8 /* WebViewController.swift */; };
 		BD6128BF1CD49202002BEE20 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6128BE1CD49202002BEE20 /* QuizViewController.swift */; };
+		BD6128C71CD51776002BEE20 /* PersonSearchViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6128C61CD51776002BEE20 /* PersonSearchViewControllerExtension.swift */; };
+		BD6128C91CD565F0002BEE20 /* BackupEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6128C81CD565F0002BEE20 /* BackupEvents.swift */; };
 		BDD2DB331CD0597700DE4513 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD2DB321CD0597700DE4513 /* FBSDKCoreKit.framework */; };
 		BDD2DB351CD05C0400DE4513 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD2DB341CD05C0400DE4513 /* FBSDKLoginKit.framework */; };
 		BDD2DB381CD060F400DE4513 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD2DB371CD060F400DE4513 /* ApiClient.swift */; };
@@ -84,6 +86,8 @@
 		BD2FFDB21CD3D96A0043B4B4 /* CloudKitClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitClient.swift; sourceTree = "<group>"; };
 		BD4C677D1CD1E555005FB9B8 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		BD6128BE1CD49202002BEE20 /* QuizViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
+		BD6128C61CD51776002BEE20 /* PersonSearchViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonSearchViewControllerExtension.swift; sourceTree = "<group>"; };
+		BD6128C81CD565F0002BEE20 /* BackupEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackupEvents.swift; sourceTree = "<group>"; };
 		BDD2DB321CD0597700DE4513 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		BDD2DB341CD05C0400DE4513 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../../FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		BDD2DB371CD060F400DE4513 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
@@ -252,6 +256,7 @@
 			children = (
 				BDD2DB371CD060F400DE4513 /* ApiClient.swift */,
 				BD2FFDB21CD3D96A0043B4B4 /* CloudKitClient.swift */,
+				BD6128C81CD565F0002BEE20 /* BackupEvents.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -277,6 +282,7 @@
 				BD23206B1CD2DAAD00F4A6BF /* DirectoryViewController.swift */,
 				BD23206D1CD312C400F4A6BF /* LoginViewController.swift */,
 				BD6128BE1CD49202002BEE20 /* QuizViewController.swift */,
+				BD6128C61CD51776002BEE20 /* PersonSearchViewControllerExtension.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -487,9 +493,11 @@
 				BDD2DB521CD19F6800DE4513 /* PersonCollectionViewCell.swift in Sources */,
 				BDD2DB481CD1386400DE4513 /* EventTableViewCell.swift in Sources */,
 				BD2320631CD2D5F700F4A6BF /* PersonTableViewCell.swift in Sources */,
+				BD6128C71CD51776002BEE20 /* PersonSearchViewControllerExtension.swift in Sources */,
 				BDD2DB4B1CD13CC000DE4513 /* Event.swift in Sources */,
 				BDD2DB4D1CD142FD00DE4513 /* StringExtension.swift in Sources */,
 				BD2AFC241CD0579800622469 /* ViewController.swift in Sources */,
+				BD6128C91CD565F0002BEE20 /* BackupEvents.swift in Sources */,
 				BDD2DB4F1CD1488E00DE4513 /* Attendee.swift in Sources */,
 				BDD2DB551CD1A32200DE4513 /* EventDetailViewController.swift in Sources */,
 				BD6128BF1CD49202002BEE20 /* QuizViewController.swift in Sources */,

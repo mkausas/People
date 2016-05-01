@@ -33,7 +33,7 @@ class Event {
         let dateFormatter = NSDateFormatter()
         dateFormatter.locale = NSLocale.currentLocale()
         dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-        date = dateFormatter.stringFromDate(String.dateFromString(eventDate!)!)
+//        date = dateFormatter.stringFromDate(String.dateFromString(eventDate!)!) 
         
         id = eventDetails["id"] as? String
         

@@ -15,9 +15,16 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var loaderView: UIView!
     
+    @IBOutlet weak var personCollectionView: PersonCollectionView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
     
     var loader: AASquaresLoading!
     let refreshControl = UIRefreshControl()
+    
+    // person search
+    var webViewUrl: String?
+    var webViewAttendee: Attendee?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,22 +46,66 @@ class SearchViewController: UIViewController {
         searchBar.delegate = self
         personTableView.eventTableViewDelegate = self
         
+        personCollectionView.setupData()
+        
         // pull down to refresh
         refreshControl.addTarget(self, action: #selector(SearchViewController.refreshControlAction(_:)), forControlEvents: UIControlEvents.ValueChanged)
         personTableView.insertSubview(refreshControl, atIndex: 0)
+        
+        setupPersonSearch()
     }
     
+    func setupPersonSearch() {
+        if traitCollection.forceTouchCapability == .Available {
+            self.registerForPreviewingWithDelegate(self, sourceView: personCollectionView)
+        }
+        
+        personCollectionView.personCollectionViewDelegate = self
+        personCollectionView.insertSubview(refreshControl, atIndex: 0)
+    }
+    
+
+    @IBAction func onModeChanged(sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        
+        // Search Event
+        case 0:
+            getUserEvents()
+            personTableView.hidden = false
+            personCollectionView.hidden = true
+            break
+            
+    
+        // Search Person
+        case 1:
+            getSearchedUser()
+            personTableView.hidden = true
+            personCollectionView.hidden = false
+            searchBar.becomeFirstResponder()
+            break
+            
+        default: break
+        }
+        
+    }
+
     override func viewDidAppear(animated: Bool) {
         reloadData()
     }
     
     func refreshControlAction(refreshControl: UIRefreshControl) {
-//        self.view.squareLoading.start(0.0)
         reloadData()
-        
+    }
+    
+    func reloadData() {
+        if segmentedControl.selectedSegmentIndex == 0 {
+            reloadEventData()
+        } else {
+            getSearchedUser()
+        }
     }
 
-    func reloadData() {
+    func reloadEventData() {
         if ApiClient.USER_ID == nil {
             print("cannot grab data because we lack an id, getting self")
             
@@ -82,12 +133,22 @@ class SearchViewController: UIViewController {
     
     func getUserEvents() {
         ApiClient.getUserEvents(ApiClient.USER_ID!) { (events, error) in
-            if error == nil {
+            if error == nil && events != nil {
                 self.personTableView.setData(events!)
-                self.loader.stop()
                 self.personTableView.reloadData()
-                self.refreshControl.endRefreshing()
             }
+            self.loader.stop()
+            self.refreshControl.endRefreshing()
+        }
+    }
+    
+    func getSearchedUser() {
+        ApiClient.searchPerson(searchBar.text!) { (people, error) in
+            if error == nil { 
+                self.personCollectionView.setPeople(people!)
+            }
+            self.refreshControl.endRefreshing()
+
         }
     }
     
@@ -121,17 +182,23 @@ extension SearchViewController: EventTableViewDelegate {
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        let events = personTableView.events
         
-        personTableView.filteredEvents = searchText.isEmpty ? events : events.filter({(event: Event) -> Bool in
+        if segmentedControl.selectedSegmentIndex == 0 {
+            let events = personTableView.events
             
-            let containsEventTitle = event.title!.rangeOfString(searchText, options: .CaseInsensitiveSearch) != nil
-            let containsEventAuthor = event.owner!.rangeOfString(searchText, options: .CaseInsensitiveSearch) != nil
+            personTableView.filteredEvents = searchText.isEmpty ? events : events.filter({(event: Event) -> Bool in
+                
+                let containsEventTitle = event.title!.rangeOfString(searchText, options: .CaseInsensitiveSearch) != nil
+                let containsEventAuthor = event.owner!.rangeOfString(searchText, options: .CaseInsensitiveSearch) != nil
+                
+                return containsEventTitle || containsEventAuthor
+            })
             
-            return containsEventTitle || containsEventAuthor
-        })
-        
-        personTableView.reloadData()
+            personTableView.reloadData()
+        }
+        else {
+            getSearchedUser()
+        }
     }
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
@@ -142,6 +209,15 @@ extension SearchViewController: UISearchBarDelegate {
         searchBar.showsCancelButton = false
         searchBar.text = ""
         searchBar.resignFirstResponder()
+        getSearchedUser()
+    }
+    
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.resignFirstResponder()
     }
 }
+
+
 

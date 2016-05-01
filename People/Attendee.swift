@@ -52,16 +52,21 @@ class Attendee {
             }.resume()
     }
     
-    class func groupFromJSON(attendeeArray: [NSDictionary], event: Event) -> [Attendee] {
+    class func groupFromJSON(attendeeArray: [NSDictionary], event: Event?) -> [Attendee] {
         var attendees = [Attendee]()
         
         for attendeeDetails in attendeeArray {
             let attendee = Attendee(attendeeDetails: attendeeDetails)
             
-            attendee.eventName = event.title
-            attendee.eventID = event.id
-            attendee.eventDate = event.date
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.locale = NSLocale.currentLocale()
+            dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+            let date = dateFormatter.stringFromDate(NSDate())
             
+            attendee.eventName = event?.title ?? "None"
+            attendee.eventID = event?.id ?? ""
+            attendee.eventDate = event?.date ?? date
+
             attendees.append(attendee)
         }
         

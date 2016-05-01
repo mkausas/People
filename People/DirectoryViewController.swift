@@ -81,6 +81,8 @@ extension DirectoryViewController: UISearchBarDelegate {
         searchBar.showsCancelButton = false
         searchBar.text = ""
         searchBar.resignFirstResponder()
+        personTableView.filteredData = personTableView.people
+        personTableView.reloadData()
     }
 }
 
